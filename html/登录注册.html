@@ -1,0 +1,2022 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="css/login.css" />
+    <style type="text/css">
+        @charset "UTF-8";
+        html {
+            overflow-y: hidden;
+        }
+        
+        body {
+            margin: 0;
+            height: 100%;
+        }
+        
+        a:active,
+        a:hover {
+            outline: 0
+        }
+        
+        button,
+        input,
+        optgroup,
+        select,
+        textarea {
+            color: inherit;
+            font: inherit;
+            margin: 0
+        }
+        
+        button,
+        html input[type=button],
+        input[type=reset],
+        input[type=submit] {
+            -webkit-appearance: button;
+            cursor: pointer
+        }
+        
+        input,
+        select,
+        button {
+            outline: none;
+        }
+        
+        table {
+            border-collapse: collapse;
+            border-spacing: 0
+        }
+        
+        td,
+        th {
+            padding: 0
+        }
+        
+        img {
+            vertical-align: middle;
+            border: 0
+        }
+        
+        @-ms-viewport {
+            width: device-width
+        }
+        
+        html {
+            font-size: 50px;
+            -webkit-tap-highlight-color: transparent;
+            height: 100%;
+            min-width: 320px;
+            overflow-x: hidden
+        }
+        
+        body {
+            font-family: "Microsoft YaHei";
+            font-size: .28em;
+            line-height: 1;
+            color: #333;
+            background-color: white;
+        }
+        
+        .h1,
+        .h2,
+        .h3,
+        .h4,
+        .h5,
+        .h6,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-weight: 500;
+            line-height: 1.1
+        }
+        
+        .h1 .small,
+        .h1 small,
+        .h2 .small,
+        .h2 small,
+        .h3 .small,
+        .h3 small,
+        .h4 .small,
+        .h4 small,
+        .h5 .small,
+        .h5 small,
+        .h6 .small,
+        .h6 small,
+        h1 .small,
+        h1 small,
+        h2 .small,
+        h2 small,
+        h3 .small,
+        h3 small,
+        h4 .small,
+        h4 small,
+        h5 .small,
+        h5 small,
+        h6 .small,
+        h6 small {
+            font-weight: 400;
+            line-height: 1
+        }
+        
+        .h1,
+        .h2,
+        .h3,
+        h1,
+        h2,
+        h3 {
+            margin-top: .28rem;
+            margin-bottom: .14rem
+        }
+        
+        .h1 .small,
+        .h1 small,
+        .h2 .small,
+        .h2 small,
+        .h3 .small,
+        .h3 small,
+        h1 .small,
+        h1 small,
+        h2 .small,
+        h2 small,
+        h3 .small,
+        h3 small {
+            font-size: 65%
+        }
+        
+        .h4,
+        .h5,
+        .h6,
+        h4,
+        h5,
+        h6 {
+            margin-top: .14rem;
+            margin-bottom: .14rem
+        }
+        
+        .h4 .small,
+        .h4 small,
+        .h5 .small,
+        .h5 small,
+        .h6 .small,
+        .h6 small,
+        h4 .small,
+        h4 small,
+        h5 .small,
+        h5 small,
+        h6 .small,
+        h6 small {
+            font-size: 75%
+        }
+        
+        .h1,
+        h1 {
+            font-size: .364rem
+        }
+        
+        .h2,
+        h2 {
+            font-size: .2996rem
+        }
+        
+        .h3,
+        h3 {
+            font-size: .238rem
+        }
+        
+        .h4,
+        h4 {
+            font-size: .175rem
+        }
+        
+        .h5,
+        h5 {
+            font-size: .14rem
+        }
+        
+        .h6,
+        h6 {
+            font-size: .119rem
+        }
+        
+        h6 {
+            margin-top: 0;
+            margin-bottom: 0
+        }
+        
+        button,
+        input,
+        select,
+        textarea {
+            font-family: inherit;
+            font-size: inherit;
+            line-height: inherit
+        }
+        
+        a {
+            color: #06c1ae;
+            text-decoration: none;
+            outline: 0
+        }
+        
+        a:focus {
+            outline: thin dotted;
+            outline: 5px auto -webkit-focus-ring-color;
+            outline-offset: -2px
+        }
+        
+        a.react,
+        label.react {
+            display: block;
+            color: inherit;
+            height: 100%
+        }
+        
+        a.react.react-active,
+        a.react:active,
+        label.react:active {
+            background: rgba(0, 0, 0, .1)
+        }
+        
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style-type: none
+        }
+        
+        hr {
+            margin-top: .28rem;
+            margin-bottom: .28rem;
+            border: 0;
+            border-top: 1px solid #DDD8CE
+        }
+        
+        h6,
+        p {
+            line-height: 1.41;
+            text-align: justify;
+            margin: -.2em 0;
+            word-break: break-all
+        }
+        
+        small,
+        weak {
+            color: #666
+        }
+        
+         ::-webkit-input-placeholder {
+            color: #999;
+            line-height: inherit;
+        }
+        
+         :-moz-placeholder {
+            color: #999;
+            line-height: inherit;
+        }
+        
+         ::-moz-placeholder {
+            color: #999;
+            line-height: inherit;
+        }
+        /*other public*/
+        
+        .iconfont {
+            font-family: 'adminthemesregular';
+        }
+        
+        .add_icon:before {
+            content: "a";
+            margin: 0 5px;
+            font-family: 'adminthemesregular';
+        }
+        
+        .money_icon:before {
+            content: "$";
+            margin: 0 5px;
+            font-family: 'adminthemesregular';
+            font-size: 20px;
+        }
+        
+        .rmb_icon {
+            color: #19a97b;
+        }
+        
+        .rmb_icon:before {
+            content: "￥";
+            margin-right: 2px;
+        }
+        
+        .ellipsis {
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        
+        .center {
+            text-align: center;
+        }
+        
+        .fl {
+            float: left;
+        }
+        
+        .fr {
+            float: right;
+        }
+        
+        .mtb {
+            margin: 5px 0;
+            overflow: hidden;
+        }
+        
+        .mlr {
+            margin: 0 5px;
+            overflow: hidden;
+        }
+        
+        .admin_login {
+            width: 300px;
+            height: auto;
+            overflow: hidden;
+            margin: 10% auto 0 auto;
+            padding: 40px;
+            box-shadow: 0 -15px 30px #0d957a;
+            border-radius: 5px;
+        }
+        
+        .admin_login dt {
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center;
+            color: #45bda6;
+            text-shadow: 0 0 1px #0e947a;
+            margin-bottom: 15px;
+        }
+        
+        .admin_login dt strong {
+            display: block;
+        }
+        
+        .admin_login dt em {
+            display: block;
+            font-size: 12px;
+            margin-top: 8px;
+        }
+        
+        .admin_login dd {
+            margin: 5px 0;
+            height: 42px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .admin_login dd .login_txtbx {
+            font-size: 14px;
+            height: 26px;
+            line-height: 26px;
+            padding: 8px 5%;
+            width: 90%;
+            text-indent: 2em;
+            border: none;
+            background: #5cbdaa;
+            color: white;
+        }
+        
+        .admin_login dd .login_txtbx::-webkit-input-placeholder {
+            color: #f4f4f4;
+            line-height: inherit;
+        }
+        
+        .admin_login dd .login_txtbx:-moz-placeholder {
+            color: #f4f4f4;
+            line-height: inherit;
+        }
+        
+        .admin_login dd .login_txtbx::-moz-placeholder {
+            color: #f4f4f4;
+            line-height: inherit;
+        }
+        
+        .admin_login dd .login_txtbx:focus {
+            background: #55b7a4;
+        }
+        
+        .admin_login dd:before {
+            font-family: 'adminthemesregular';
+            position: absolute;
+            top: 0;
+            left: 10px;
+            height: 42px;
+            line-height: 42px;
+            font-size: 20px;
+            color: #0c9076;
+        }
+        
+        .admin_login dd.user_icon:before {
+            content: "u";
+        }
+        
+        .admin_login dd.pwd_icon:before {
+            content: "p";
+        }
+        
+        .admin_login dd.val_icon:before {
+            content: "n";
+        }
+        
+        .admin_login dd .ver_btn {
+            text-align: right;
+            border: none;
+            color: #f4f4f4;
+            height: 42px;
+            line-height: 42px;
+            margin: 0;
+            z-index: 1;
+            position: relative;
+            float: right;
+            background: #48bca5;
+        }
+        
+        .admin_login dd .checkcode {
+            float: left;
+            width: 182px;
+            height: 42px;
+            background: #fff
+        }
+        
+        .admin_login dd .checkcode input {
+            width: 120px;
+            height: 36px;
+            line-height: 36px;
+            padding: 3px;
+            color: white;
+            outline: none;
+            border: none;
+            text-indent: 2.8em;
+        }
+        
+        .admin_login dd .checkcode canvas {
+            width: 85px;
+            height: 36px;
+            padding: 3px;
+            z-index: 0;
+            background: #5cbdaa;
+        }
+        
+        .admin_login dd .submit_btn {
+            width: 100%;
+            height: 42px;
+            border: none;
+            font-size: 16px;
+            background: #048f74;
+            color: #f8f8f8;
+        }
+        
+        .admin_login dd .submit_btn:hover {
+            background: #0c9076;
+            color: #f4f4f4;
+        }
+        
+        .admin_login dd p {
+            color: #53c6b0;
+            font-size: 12px;
+            text-align: center;
+            margin: 5px 0;
+        }
+        /*header*/
+        
+        header {
+            background: #19a97b;
+            overflow: hidden;
+        }
+        
+        header h1 {
+            margin: 0;
+            float: left;
+            margin-left: 1%;
+        }
+        
+        header h1 img {
+            width: auto;
+            max-width: 300px;
+            height: 70px;
+        }
+        
+        header .rt_nav {
+            float: right;
+            overflow: hidden;
+            margin-right: 3%;
+            margin-top: 12px;
+        }
+        
+        header .rt_nav li {
+            float: left;
+            padding: 0 25px;
+            text-align: center;
+            border-right: 1px #139667 solid;
+        }
+        
+        header .rt_nav li:last-child {
+            border: none;
+        }
+        
+        header .rt_nav li a {
+            color: white;
+            font-size: 12px;
+            text-shadow: 0 0 1px #20af83;
+            display: block;
+        }
+        
+        header .rt_nav li a:hover {
+            color: #f4f4f4;
+        }
+        
+        header .rt_nav li a:hover:before {
+            color: #f4f4f4;
+        }
+        
+        header .rt_nav li a:before {
+            font-family: 'adminthemesregular';
+            color: white;
+            font-size: 30px;
+            display: block;
+        }
+        
+        header .rt_nav li .website_icon:before {
+            content: "I";
+        }
+        
+        header .rt_nav li .admin_icon:before {
+            content: "U";
+        }
+        
+        header .rt_nav li .clear_icon:before {
+            content: "C";
+        }
+        
+        header .rt_nav li .set_icon:before {
+            content: "S";
+        }
+        
+        header .rt_nav li .quit_icon:before {
+            content: "Q";
+        }
+        /*aside nav*/
+        
+        .lt_aside_nav {
+            width: 210px;
+            height: 100%;
+            position: absolute;
+            top: 70px;
+            left: 0;
+            background: #fcfcfc;
+        }
+        
+        .lt_aside_nav h2 {
+            text-align: center;
+            border-bottom: 1px #b6b6b6 solid;
+            margin: 0;
+            height: 45px;
+            line-height: 45px;
+            background: #efefef;
+        }
+        
+        .lt_aside_nav h2 a {
+            display: block;
+            color: #333333;
+            font-size: 14px;
+            text-shadow: 0 0 2px white;
+        }
+        
+        .lt_aside_nav ul {
+            margin-bottom: 75px;
+        }
+        
+        .lt_aside_nav dl {
+            margin: 0;
+        }
+        
+        .lt_aside_nav dl dt {
+            font-weight: bold;
+            height: 45px;
+            line-height: 45px;
+            border-bottom: 1px #e9e9e9 solid;
+            padding: 0 15px;
+            position: relative;
+        }
+        
+        .lt_aside_nav dl dt:before {
+            position: absolute;
+            width: 5px;
+            height: 25px;
+            background: #67c1a5;
+            content: "";
+            top: 10px;
+            left: 0;
+        }
+        
+        .lt_aside_nav dl dd {
+            margin: 0;
+            height: 40px;
+            line-height: 40px;
+            border-bottom: 1px #e9e9e9 dotted;
+        }
+        
+        .lt_aside_nav dl dd a {
+            display: block;
+            color: #555555;
+            padding: 0 15px;
+        }
+        
+        .lt_aside_nav dl dd a:hover {
+            background: #f8f8f8;
+            text-shadow: 0 1px 5px #f4f4f4;
+            color: #19a97b;
+        }
+        
+        .lt_aside_nav dl dd .active {
+            background: #f8f8f8;
+            color: #19a97b;
+        }
+        
+        .lt_aside_nav dl dd .active:after {
+            content: ">";
+            font-family: 'adminthemesregular';
+            position: absolute;
+            right: 3%;
+            color: #19a97b;
+        }
+        
+        .lt_aside_nav .btm_infor {
+            height: 35px;
+            line-height: 35px;
+            width: 100%;
+            background: #efefef;
+            border-top: 1px #b6b6b6 solid;
+            text-align: center;
+            color: #aaa;
+        }
+        /*public:rtContent*/
+        
+        .rt_wrap {
+            margin-left: 218px;
+            margin-right: 10px;
+            height: 100%;
+            position: relative;
+        }
+        
+        .rt_content {
+            margin-bottom: 80px;
+            margin-right: 8px;
+            overflow: hidden;
+        }
+        
+        .textWhite {
+            color: white;
+        }
+        
+        .link_btn {
+            border: 1px #139667 solid;
+            border-radius: 2px;
+            background: #19a97b;
+            color: white;
+            padding: 8px 15px;
+            display: inline-block;
+            cursor: pointer;
+        }
+        
+        .link_btn:hover {
+            background: #11a274;
+            border: 1px #0e8f61 solid;
+        }
+        
+        .link_btn:active {
+            background: #0c9c6e;
+            border: 1px #0e8f61 solid;
+        }
+        
+        .textbox {
+            border: 1px #139667 solid;
+            height: 26px;
+            line-height: 26px;
+            padding: 5px;
+            font-size: 12px;
+            vertical-align: middle;
+        }
+        
+        .textbox_295 {
+            width: 295px;
+        }
+        
+        .textbox_225 {
+            width: 225px;
+        }
+        
+        .select {
+            padding: 0 5px;
+            height: 38px;
+            font-size: 12px;
+            border: 1px #139667 solid;
+            vertical-align: middle;
+            appearance: button;
+            -webkit-appearance: button;
+        }
+        
+        .group_btn {
+            border: 1px #139667 solid;
+            background: #19a97b;
+            color: white;
+            padding: 0 15px;
+            height: 38px;
+            cursor: pointer;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        
+        .group_btn:hover {
+            background: #11a274;
+            border: 1px #0e8f61 solid;
+        }
+        
+        .group_btn:active {
+            background: #0c9c6e;
+            border: 1px #0e8f61 solid;
+        }
+        
+        .page_title {
+            height: 40px;
+            line-height: 40px;
+            border-bottom: 1px #b6b6b6 solid;
+            margin: 10px 0;
+        }
+        
+        .page_title h2 {
+            font-size: 15px;
+            font-weight: bold;
+        }
+        
+        .page_title .top_rt_btn {
+            display: inline-block;
+            height: 30px;
+            line-height: 30px;
+            padding: 0 15px;
+            border: 1px #d2d2d2 solid;
+            background: #f8f8f8;
+            color: #19a97b;
+            vertical-align: middle;
+            cursor: pointer;
+        }
+        
+        .table {
+            width: 100%;
+            table-layout: fixed;
+            margin: 5px 0;
+        }
+        
+        .table th {
+            border: 1px #d2d2d2 solid;
+            height: 40px;
+            line-height: 40px;
+        }
+        
+        .table td {
+            border: 1px #d2d2d2 solid;
+            padding: 10px 8px;
+            position: relative;
+        }
+        
+        .table td p {
+            margin: 5px 0;
+            line-height: 1.3;
+        }
+        
+        .table td mark {
+            color: red;
+            line-height: 1.3;
+        }
+        
+        .table tr:nth-child(odd) {
+            background: #f8f8f8;
+        }
+        
+        .table tr:hover {
+            background: #f9f9f9;
+        }
+        
+        .table td a {
+            color: #19a97b;
+            margin: 0 5px;
+            cursor: pointer;
+        }
+        
+        .table td .full_link_td {
+            display: block;
+            width: 100%;
+            height: 100%;
+            border: none;
+            outline: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            text-align: center;
+            margin: 0;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        
+        .table td .full_link_td:hover {
+            background: #f4f4f4;
+            color: #019163;
+        }
+        
+        .table td .inner_btn {
+            background: #F9F;
+            color: white;
+            padding: 5px 8px;
+            border-radius: 2px;
+        }
+        
+        .table td .inner_btn:hover {
+            background: #ffa4ff;
+            color: #f8f8f8;
+        }
+        
+        .table td .cut_title {
+            width: 265px;
+        }
+        
+        .table td .link_icon {
+            font-size: 24px;
+            font-family: 'adminthemesregular';
+            color: #19a97b;
+        }
+        
+        .table td .link_icon:hover {
+            color: #019163;
+        }
+        
+        .paging {
+            margin: 8px 0;
+            overflow: hidden;
+            text-align: right;
+        }
+        
+        .paging a {
+            background: #19a97b;
+            border: 1px #139667 solid;
+            color: white;
+            padding: 5px 8px;
+            display: inline-block;
+            cursor: pointer;
+        }
+        
+        .paging a:hover {
+            background: #11a274;
+            border: 1px #0e8f61 solid;
+        }
+        
+        .paging a:active {
+            background: #17a578;
+            border: 1px #0e8f61 solid;
+        }
+        
+        .single_selection {
+            color: #333;
+            padding: 6px 8px;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        
+        .single_selection input {
+            margin-right: 3px;
+            vertical-align: middle;
+        }
+        
+        .errorTips {
+            color: red;
+            margin: 0 8px;
+        }
+        
+        .errorTips:before {
+            content: "x";
+            font-family: 'adminthemesregular';
+            margin-right: 3px;
+            font-size: 16px;
+        }
+        
+        .textarea {
+            display: inline-block;
+            margin-top: 5px;
+            outline: none;
+            resize: none;
+            border: 1px #139667 solid;
+            padding: 8px;
+        }
+        
+        .uploadImg {
+            display: inline-block;
+            padding: 15px;
+            background: #f8f8f8;
+            position: relative;
+            border: 1px #139667 solid;
+        }
+        
+        .uploadImg input {
+            display: none;
+        }
+        
+        .uploadImg span {
+            display: block;
+            font-size: 12px;
+            text-align: center;
+            color: #139667;
+        }
+        
+        .uploadImg span:hover {
+            color: #209f71;
+        }
+        
+        .uploadImg span:before {
+            content: "#";
+            font-family: 'adminthemesregular';
+            display: block;
+            font-size: 40px;
+        }
+        
+        .ulColumn2 {
+            overflow: hidden;
+        }
+        
+        .ulColumn2 li {
+            margin: 15px 0;
+        }
+        
+        .ulColumn2 li .item_name {
+            text-align: right;
+            display: inline-block;
+        }
+        /*TAB*/
+        
+        .admin_tab {
+            background: #f8f8f8;
+            overflow: hidden;
+            border: 1px #d2d2d2 solid;
+            margin-bottom: 8px;
+        }
+        
+        .admin_tab li {
+            float: left;
+            height: 40px;
+            line-height: 40px;
+            border-right: 1px #f2f2f2 solid;
+        }
+        
+        .admin_tab li:last-child {
+            border: none;
+        }
+        
+        .admin_tab li a {
+            display: block;
+            padding: 0 20px;
+            color: grey;
+            font-size: 12px;
+            cursor: pointer;
+        }
+        
+        .admin_tab li a.active {
+            background: white;
+            font-weight: bold;
+            border-top: 1px #19a97b solid;
+            color: #19a97b;
+        }
+        
+        .admin_tab_cont {
+            display: none;
+            margin: 5px 0;
+            overflow: hidden;
+        }
+        
+        .cont_col_lt {
+            width: 300px;
+            overflow: hidden;
+            float: left;
+        }
+        
+        .cont_col_rt {
+            margin-left: 315px;
+            overflow: hidden;
+        }
+        /*pop*/
+        
+        .pop_bg {
+            display: none;
+            background: rgba(0, 0, 0, .35);
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 999;
+        }
+        
+        .pop_cont {
+            background: white;
+            min-width: 300px;
+            height: auto;
+            overflow: hidden;
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            margin-left: -150px;
+            border-radius: 5px 5px 0 0;
+        }
+        
+        .pop_cont h3 {
+            height: 40px;
+            line-height: 40px;
+            background: #19a97b;
+            color: white;
+            font-size: 14px;
+            font-weight: bold;
+            margin: 0;
+            padding: 0 1em;
+        }
+        
+        .pop_cont h3:before {
+            content: "*";
+            font-family: 'adminthemesregular';
+            margin-right: 2px;
+            font-size: 20px;
+            font-weight: normal;
+        }
+        
+        .pop_cont .pop_cont_text {
+            padding: 10px;
+            line-height: 1.3;
+            color: grey;
+        }
+        
+        .pop_cont .pop_cont_input {
+            padding: 10px;
+            text-align: center;
+        }
+        
+        .pop_cont .pop_cont_input li {
+            margin: 5px 0;
+            text-align: left;
+            overflow: hidden;
+        }
+        
+        .pop_cont .pop_cont_input li .ttl {
+            display: inline-block;
+        }
+        
+        .pop_cont .pop_cont_input li .textbox {
+            border: 1px #d2d2d2 solid;
+            width: 200px;
+            display: inline-block;
+        }
+        
+        .pop_cont .pop_cont_input li .select {
+            border: 1px #d2d2d2 solid;
+        }
+        
+        .pop_cont .pop_cont_input li .textarea {
+            border: 1px #d2d2d2 solid;
+        }
+        
+        .pop_cont .btm_btn {
+            padding: 10px 0;
+            text-align: center;
+        }
+        
+        .pop_cont .btm_btn .input_btn {
+            display: inline-block;
+            height: 35px;
+            border: none;
+            background: none;
+            padding: 0 20px;
+        }
+        
+        .pop_cont .btm_btn .trueBtn {
+            background: #19a97b;
+            color: white;
+            border: 1px #19a97b solid;
+            border-radius: 2px;
+        }
+        
+        .pop_cont .btm_btn .trueBtn:hover {
+            background: #13a174;
+            border-radius: 0;
+            border: 1px #13a174 solid;
+        }
+        
+        .pop_cont .btm_btn .falseBtn {
+            background: #fafafa;
+            color: grey;
+            border: 1px #d2d2d2 solid;
+            border-radius: 2px;
+        }
+        
+        .pop_cont .btm_btn .falseBtn:hover,
+        .pop_cont .btm_btn .input_btn_02:active {
+            background: #f0f0f0;
+            border-radius: 0;
+            color: #818181;
+            text-shadow: 0 1px 1px white;
+        }
+        /*loading*/
+        
+        .loading_area {
+            display: none;
+            background: rgba(255, 255, 255, .85);
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            z-index: 999;
+        }
+        
+        .loading_cont {
+            overflow: hidden;
+            margin-top: 20%;
+        }
+        
+        @-webkit-keyframes loading_icon {
+            0% {
+                transform: scaleY(1);
+                -moz-transform: scaleY(1);
+                -webkit-transform: scaleY(1)
+            }
+            50% {
+                transform: scaleY(.4);
+                -moz-transform: scaleY(.4);
+                -webkit-transform: scaleY(.4)
+            }
+            100% {
+                transform: scaleY(1);
+                -moz-transform: scaleY(1);
+                -webkit-transform: scaleY(1)
+            }
+        }
+        
+        @-moz-keyframes loading_icon {
+            0% {
+                transform: scaleY(1);
+                -moz-transform: scaleY(1);
+                -webkit-transform: scaleY(1)
+            }
+            50% {
+                transform: scaleY(.4);
+                -moz-transform: scaleY(.4);
+                -webkit-transform: scaleY(.4)
+            }
+            100% {
+                transform: scaleY(1);
+                -moz-transform: scaleY(1);
+                -webkit-transform: scaleY(1)
+            }
+        }
+        
+        .loading_icon i {
+            display: inline-block;
+            width: 4px;
+            height: 20px;
+            border-radius: 2px;
+            background: #19a97b;
+            margin: 0 2px
+        }
+        
+        .loading_icon i:nth-child(1) {
+            -webkit-animation: loading_icon 1s ease-in .1s infinite;
+            -moz-animation: loading_icon 1s ease-in .1s infinite;
+            animation: loading_icon 1s ease-in .1s infinite
+        }
+        
+        .loading_icon i:nth-child(2) {
+            -webkit-animation: loading_icon 1s ease-in .2s infinite;
+            -moz-animation: loading_icon 1s ease-in .2s infinite;
+            animation: loading_icon 1s ease-in .2s infinite
+        }
+        
+        .loading_icon i:nth-child(3) {
+            -webkit-animation: loading_icon 1s ease-in .3s infinite;
+            -moz-animation: loading_icon 1s ease-in .3s infinite;
+            animation: loading_icon 1s ease-in .3s infinite
+        }
+        
+        .loading_icon i:nth-child(4) {
+            -webkit-animation: loading_icon 1s ease-in .4s infinite;
+            -moz-animation: loading_icon 1s ease-in .4s infinite;
+            animation: loading_icon 1s ease-in .4s infinite
+        }
+        
+        .loading_icon i:nth-child(5) {
+            -webkit-animation: loading_icon 1s ease-in .5s infinite;
+            -moz-animation: loading_icon 1s ease-in .5s infinite;
+            animation: loading_icon 1s ease-in .5s infinite
+        }
+        
+        .loading_txt mark {
+            background: none;
+            font-size: 12px;
+            color: red;
+        }
+        /*statistic*/
+        
+        .dataStatistic {
+            width: 700px;
+            height: 400px;
+            border: 1px solid #ccc;
+            margin: 0 auto;
+            margin-top: 100px;
+            overflow: hidden
+        }
+        
+        #cylindrical {
+            width: 700px;
+            height: 400px;
+            margin-top: -15px
+        }
+        
+        #line {
+            width: 700px;
+            height: 400px;
+            margin-top: -15px
+        }
+        
+        #pie {
+            width: 700px;
+            height: 400px;
+            margin-top: -15px
+        }
+        
+        body {
+            height: 100%;
+            background: #16a085;
+            overflow: hidden;
+        }
+        
+        canvas {
+            z-index: -1;
+            position: absolute;
+        }
+        
+        .wrap {
+            padding: 40px;
+        }
+        /*登录*/
+        
+        .login {
+            display: block;
+        }
+        
+        .form {
+            width: 300px;
+            height: auto;
+            overflow: hidden;
+            margin: 10% auto 0 auto;
+            padding: 40px;
+            box-shadow: 0 -15px 30px #0d957a;
+            border-radius: 5px;
+        }
+        
+        .form input {
+            font-family: "Roboto", sans-serif;
+            outline: 0;
+            border: 0;
+            margin: 0 0 15px;
+            padding: 15px;
+            box-sizing: border-box;
+            font-size: 14px;
+            width: 100%;
+        }
+        
+        .form button {
+            font-family: "Microsoft YaHei", "Roboto", sans-serif;
+            text-transform: uppercase;
+            outline: 0;
+            background: #4CAF50;
+            width: 100%;
+            border: 0;
+            padding: 15px;
+            color: #FFFFFF;
+            font-size: 14px;
+            -webkit-transition: all 0.3 ease;
+            transition: all 0.3 ease;
+            cursor: pointer;
+        }
+        
+        .form button:hover,
+        .form button:active,
+        .form button:focus {
+            background: #43A047;
+        }
+        
+        .login_bottom {
+            margin-top: 20px;
+            overflow: hidden;
+        }
+        
+        .login_bottom_left {
+            float: left;
+            cursor: pointer;
+        }
+        
+        .login_bottom_left:hover {
+            color: #004785;
+        }
+        
+        .login_bottom_right {
+            float: right;
+            color: #004785;
+            cursor: pointer;
+        }
+        /*注册*/
+        
+        .register {
+            display: none;
+        }
+        
+        .form2 {
+            width: 300px;
+            height: auto;
+            overflow: hidden;
+            margin: 10% auto 0 auto;
+            padding: 40px;
+            box-shadow: 0 -15px 30px #0d957a;
+            border-radius: 5px;
+        }
+        
+        .register_phone,
+        .register_passw {
+            font-family: "Roboto", sans-serif;
+            outline: 0;
+            border: 0;
+            margin: 0 0 15px;
+            padding: 15px;
+            box-sizing: border-box;
+            font-size: 14px;
+            width: 100%;
+            overflow: hidden;
+        }
+        
+        .register_yanzheng {
+            font-family: "Roboto", sans-serif;
+            outline: 0;
+            border: 0;
+            margin: 0 0 15px;
+            padding: 15px;
+            box-sizing: border-box;
+            font-size: 14px;
+            float: left;
+        }
+        
+        .register_btn {
+            width: 120px;
+            height: 46px;
+            border: 0px;
+            background: #f35c55;
+            color: #ffffff;
+            margin-left: 2px;
+            -webkit-appearance: button;
+            cursor: pointer;
+            float: right;
+        }
+        
+        .register_btn:hover {
+            background: #f38355;
+        }
+        
+        .form2 button {
+            font-family: "Microsoft YaHei", "Roboto", sans-serif;
+            text-transform: uppercase;
+            outline: 0;
+            background: #4CAF50;
+            width: 100%;
+            border: 0;
+            padding: 15px;
+            color: #FFFFFF;
+            font-size: 14px;
+            -webkit-transition: all 0.3 ease;
+            transition: all 0.3 ease;
+            cursor: pointer;
+        }
+        
+        .form2 button:hover,
+        .form2 button:active,
+        .form2 button:focus {
+            background: #43A047;
+        }
+        
+        .register_bottom {
+            margin-top: 20px;
+            overflow: hidden;
+        }
+        
+        .register_bottom_left {
+            float: left;
+        }
+        
+        .register_bottom_left span {
+            color: #004785;
+            cursor: pointer;
+        }
+        
+        .register_bottom_right {
+            float: right;
+            color: #004785;
+            cursor: pointer;
+        }
+        /*找回密码*/
+        
+        .back {
+            display: none;
+        }
+        
+        .form3 {
+            width: 300px;
+            height: auto;
+            overflow: hidden;
+            margin: 10% auto 0 auto;
+            padding: 40px;
+            box-shadow: 0 -15px 30px #0d957a;
+            border-radius: 5px;
+        }
+        
+        .back_btn {
+            width: 120px;
+            height: 46px;
+            border: 0px;
+            background: #f35c55;
+            color: #ffffff;
+            margin-left: 2px;
+            -webkit-appearance: button;
+            cursor: pointer;
+            float: right;
+        }
+        
+        .back_phone {
+            font-family: "Roboto", sans-serif;
+            outline: 0;
+            border: 0;
+            margin: 0 0 15px;
+            padding: 15px;
+            box-sizing: border-box;
+            font-size: 14px;
+            width: 100%;
+            overflow: hidden;
+        }
+        
+        .back_yanzheng {
+            font-family: "Roboto", sans-serif;
+            outline: 0;
+            border: 0;
+            margin: 0 0 15px;
+            padding: 15px;
+            box-sizing: border-box;
+            font-size: 14px;
+            float: left;
+        }
+        
+        .form3 button {
+            font-family: "Microsoft YaHei", "Roboto", sans-serif;
+            text-transform: uppercase;
+            outline: 0;
+            background: #4CAF50;
+            width: 100%;
+            border: 0;
+            padding: 15px;
+            color: #FFFFFF;
+            font-size: 14px;
+            -webkit-transition: all 0.3 ease;
+            transition: all 0.3 ease;
+            cursor: pointer;
+        }
+        
+        .form3 button:hover,
+        .form3 button:active,
+        .form3 button:focus {
+            background: #43A047;
+        }
+        
+        .modify {
+            display: none;
+        }
+        
+        .form4 {
+            width: 300px;
+            height: auto;
+            overflow: hidden;
+            margin: 10% auto 0 auto;
+            padding: 40px;
+            box-shadow: 0 -15px 30px #0d957a;
+            border-radius: 5px;
+        }
+        
+        .form4 input {
+            font-family: "Roboto", sans-serif;
+            outline: 0;
+            border: 0;
+            margin: 0 0 15px;
+            padding: 15px;
+            box-sizing: border-box;
+            font-size: 14px;
+            width: 100%;
+        }
+        
+        .form4 button {
+            font-family: "Microsoft YaHei", "Roboto", sans-serif;
+            text-transform: uppercase;
+            outline: 0;
+            background: #4CAF50;
+            width: 100%;
+            border: 0;
+            padding: 15px;
+            color: #FFFFFF;
+            font-size: 14px;
+            -webkit-transition: all 0.3 ease;
+            transition: all 0.3 ease;
+            cursor: pointer;
+        }
+        
+        .modify_passw,
+        .modify_passw1 {
+            font-family: "Roboto", sans-serif;
+            outline: 0;
+            border: 0;
+            margin: 0 0 15px;
+            padding: 15px;
+            box-sizing: border-box;
+            font-size: 14px;
+            width: 100%;
+            overflow: hidden;
+        }
+        
+        .form4 button:hover,
+        .form4 button:active,
+        .form4 button:focus {
+            background: #43A047;
+        }
+        
+        @-webkit-keyframes shake {
+            from,
+            to {
+                -webkit-transform: translate3d(0, 0, 0);
+                transform: translate3d(0, 0, 0);
+            }
+            10%,
+            30%,
+            50%,
+            70%,
+            90% {
+                -webkit-transform: translate3d(-10px, 0, 0);
+                transform: translate3d(-10px, 0, 0);
+            }
+            20%,
+            40%,
+            60%,
+            80% {
+                -webkit-transform: translate3d(10px, 0, 0);
+                transform: translate3d(10px, 0, 0);
+            }
+        }
+        
+        .shake_effect {
+            -webkit-animation-name: shake;
+            animation-name: shake;
+            -webkit-animation-duration: 1s;
+            animation-duration: 1s;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+
+        <!--登录-->
+        <div class="login">
+            <div class="form">
+                <input type="text" class="login_username" placeholder="用户名/手机号码" value="" />
+                <input type="password" class="login_passw" placeholder="密码" value="" />
+                <button class="login_in">登   录</button>
+                <div class="login_bottom">
+                    <div class="login_bottom_left">忘记密码</div>
+                    <div class="login_bottom_right">立即注册></div>
+                </div>
+            </div>
+        </div>
+        <!--注册-->
+        <div class="register">
+            <div class="form2">
+                <input class="register_phone" type="text" placeholder="手机号码" value="" />
+                <input class="register_passw" type="password" placeholder="请输入密码(6~20位)字母+数字/符号" value="" />
+                <input class="register_yanzheng" type="text" placeholder="请输入验证码" value="" />
+                <input class="register_btn" type="button" value="获取验证码" />
+                <button class="register_in">注   册</button>
+                <div class="register_bottom">
+                    <div class="register_bottom_left"><input type="checkbox" checked="true" />我已阅读并同意<span>服务协议</span></div>
+                    <div class="register_bottom_right">已有账号登录></div>
+                </div>
+            </div>
+        </div>
+        <!--找回密码-->
+        <div class="back">
+            <div class="form3">
+                <input class="back_phone" type="text" placeholder="手机号码" value="" />
+                <input class="back_yanzheng" type="text" placeholder="请输入验证码" value="" />
+                <input class="back_btn" type="button" value="获取验证码" />
+                <button>验   证</button>
+            </div>
+        </div>
+        <!--修改-->
+        <div class="modify">
+            <div class="form4">
+                <input class="modify_passw" type="password" placeholder="请输入密码(6~20位)" value="" />
+                <input class="modify_passw1" type="password" placeholder="请确保两次密码输入一致" value="" />
+                <button>修   改</button>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
+<script src="js/verificationNumbers.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/Particleground.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        //粒子背景特效
+        $('body').particleground({
+            dotColor: '#5cbdaa',
+            lineColor: '#5cbdaa'
+        });
+    });
+    //点击登录 判断手机号
+    $(".login_in").click(function() {
+
+    })
+    var bol = true;
+    var bool = true;
+    //点击注册  判断手机号和密码
+    $(".register_in").click(function() {
+            var $register_phone = $(".register_phone").val();
+            if (!(/^1[34578]\d{9}$/.test($register_phone))) {
+                bol = false;
+            }
+            if (bol == false) {
+                $(".register_phone").removeClass('shake_effect');
+                setTimeout(function() {
+                    $(".register_phone").addClass('shake_effect')
+                    bol = true;
+                }, 1);
+            }
+            var $register_passw = $(".register_passw").val();
+            if (!(/^(?![\d]+$)(?![a-zA-Z]+$)(?![!#$%^&*]+$)[\da-zA-Z!#$%^&*.]{6,20}$/.test($register_passw))) {
+                bool = false;
+            }
+            if (bool == false) {
+                $(".register_passw").removeClass('shake_effect');
+                setTimeout(function() {
+                    $(".register_passw").addClass('shake_effect')
+                    bool = true;
+                }, 1);
+            }
+        })
+        //点击获取注册验证码
+    function click_yanzheng() {
+        $(".register_btn").click(function() {
+            $(this).unbind("click");
+            var str = 60;
+            var timer;
+            $(this).val(str);
+            timer = setInterval(function() {
+                str--;
+                $(".register_btn").val(str);
+                if (str == 0) {
+                    clearInterval(timer);
+                    $(".register_btn").val("获取验证码");
+                    $(".register_btn").bind("click", click_yanzheng());
+                }
+            }, 1000)
+        })
+    }
+    click_yanzheng();
+    $(function() {
+            $('.login_bottom_right').click(function() {
+                $('.login').animate({
+                    height: 'toggle',
+                    opacity: 'toggle'
+                }, 1500);
+                $('.register').animate({
+                    height: 'toggle',
+                    opacity: 'toggle'
+                }, 1500);
+            });
+            $('.register_bottom_right').click(function() {
+                $('.register').animate({
+                    height: 'toggle',
+                    opacity: 'toggle'
+                }, 1500);
+                $('.login').animate({
+                    height: 'toggle',
+                    opacity: 'toggle'
+                }, 1500);
+            });
+            $('.login_bottom_left').click(function() {
+                $('.login').animate({
+                    height: 'toggle',
+                    opacity: 'toggle'
+                }, 1500);
+                $('.back').animate({
+                    height: 'toggle',
+                    opacity: 'toggle'
+                }, 1500);
+            });
+        })
+        /**
+         * Particleground
+         *
+         * @author Jonathan Nicol - @mrjnicol
+         * @version 1.0.1
+         * @description Creates a canvas based particle system background
+         *
+         * Inspired by:
+         * http://requestlab.fr/
+         * http://disruptivebydesign.com/
+         * 
+         * @license The MIT License (MIT)
+         * 
+         * Copyright (c) 2014 Jonathan Nicol - @mrjnicol
+         * 
+         * Permission is hereby granted, free of charge, to any person obtaining a copy
+         * of this software and associated documentation files (the "Software"), to deal
+         * in the Software without restriction, including without limitation the rights
+         * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+         * copies of the Software, and to permit persons to whom the Software is
+         * furnished to do so, subject to the following conditions:
+         * 
+         * The above copyright notice and this permission notice shall be included in
+         * all copies or substantial portions of the Software.
+         * 
+         * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+         * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+         * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+         * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+         * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+         * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+         * THE SOFTWARE.
+         */
+        ! function(a) {
+            function b(b, d) {
+                function e() {
+                    if (w) {
+                        $canvas = a('<canvas class="pg-canvas"></canvas>'), v.prepend($canvas), p = $canvas[0], q = p.getContext("2d"), f();
+                        for (var b = Math.round(p.width * p.height / d.density), c = 0; b > c; c++) {
+                            var e = new l;
+                            e.setStackPos(c), x.push(e)
+                        }
+                        a(window).on("resize", function() {
+                            h()
+                        }), a(document).on("mousemove", function(a) {
+                            y = a.pageX, z = a.pageY
+                        }), B && !A && window.addEventListener("deviceorientation", function() {
+                            D = Math.min(Math.max(-event.beta, -30), 30), C = Math.min(Math.max(-event.gamma, -30), 30)
+                        }, !0), g(), o("onInit")
+                    }
+                }
+
+                function f() {
+                    p.width = v.width(), p.height = v.height(), q.fillStyle = d.dotColor, q.strokeStyle = d.lineColor, q.lineWidth = d.lineWidth
+                }
+
+                function g() {
+                    if (w) {
+                        s = a(window).width(), t = a(window).height(), q.clearRect(0, 0, p.width, p.height);
+                        for (var b = 0; b < x.length; b++) x[b].updatePosition();
+                        for (var b = 0; b < x.length; b++) x[b].draw();
+                        E || (r = requestAnimationFrame(g))
+                    }
+                }
+
+                function h() {
+                    for (f(), i = x.length - 1; i >= 0; i--)(x[i].position.x > v.width() || x[i].position.y > v.height()) && x.splice(i, 1);
+                    var a = Math.round(p.width * p.height / d.density);
+                    if (a > x.length)
+                        for (; a > x.length;) {
+                            var b = new l;
+                            x.push(b)
+                        } else a < x.length && x.splice(a);
+                    for (i = x.length - 1; i >= 0; i--) x[i].setStackPos(i)
+                }
+
+                function j() {
+                    E = !0
+                }
+
+                function k() {
+                    E = !1, g()
+                }
+
+                function l() {
+                    switch (this.stackPos, this.active = !0, this.layer = Math.ceil(3 * Math.random()), this.parallaxOffsetX = 0, this.parallaxOffsetY = 0, this.position = {
+                        x: Math.ceil(Math.random() * p.width),
+                        y: Math.ceil(Math.random() * p.height)
+                    }, this.speed = {}, d.directionX) {
+                        case "left":
+                            this.speed.x = +(-d.maxSpeedX + Math.random() * d.maxSpeedX - d.minSpeedX).toFixed(2);
+                            break;
+                        case "right":
+                            this.speed.x = +(Math.random() * d.maxSpeedX + d.minSpeedX).toFixed(2);
+                            break;
+                        default:
+                            this.speed.x = +(-d.maxSpeedX / 2 + Math.random() * d.maxSpeedX).toFixed(2), this.speed.x += this.speed.x > 0 ? d.minSpeedX : -d.minSpeedX
+                    }
+                    switch (d.directionY) {
+                        case "up":
+                            this.speed.y = +(-d.maxSpeedY + Math.random() * d.maxSpeedY - d.minSpeedY).toFixed(2);
+                            break;
+                        case "down":
+                            this.speed.y = +(Math.random() * d.maxSpeedY + d.minSpeedY).toFixed(2);
+                            break;
+                        default:
+                            this.speed.y = +(-d.maxSpeedY / 2 + Math.random() * d.maxSpeedY).toFixed(2), this.speed.x += this.speed.y > 0 ? d.minSpeedY : -d.minSpeedY
+                    }
+                }
+
+                function m(a, b) {
+                    return b ? void(d[a] = b) : d[a]
+                }
+
+                function n() {
+                    v.find(".pg-canvas").remove(), o("onDestroy"), v.removeData("plugin_" + c)
+                }
+
+                function o(a) {
+                    void 0 !== d[a] && d[a].call(u)
+                }
+                var p, q, r, s, t, u = b,
+                    v = a(b),
+                    w = !!document.createElement("canvas").getContext,
+                    x = [],
+                    y = 0,
+                    z = 0,
+                    A = !navigator.userAgent.match(/(iPhone|iPod|iPad|Android|BlackBerry|BB10|mobi|tablet|opera mini|nexus 7)/i),
+                    B = !!window.DeviceOrientationEvent,
+                    C = 0,
+                    D = 0,
+                    E = !1;
+                return d = a.extend({}, a.fn[c].defaults, d), l.prototype.draw = function() {
+                    q.beginPath(), q.arc(this.position.x + this.parallaxOffsetX, this.position.y + this.parallaxOffsetY, d.particleRadius / 2, 0, 2 * Math.PI, !0), q.closePath(), q.fill(), q.beginPath();
+                    for (var a = x.length - 1; a > this.stackPos; a--) {
+                        var b = x[a],
+                            c = this.position.x - b.position.x,
+                            e = this.position.y - b.position.y,
+                            f = Math.sqrt(c * c + e * e).toFixed(2);
+                        f < d.proximity && (q.moveTo(this.position.x + this.parallaxOffsetX, this.position.y + this.parallaxOffsetY), d.curvedLines ? q.quadraticCurveTo(Math.max(b.position.x, b.position.x), Math.min(b.position.y, b.position.y), b.position.x + b.parallaxOffsetX, b.position.y + b.parallaxOffsetY) : q.lineTo(b.position.x + b.parallaxOffsetX, b.position.y + b.parallaxOffsetY))
+                    }
+                    q.stroke(), q.closePath()
+                }, l.prototype.updatePosition = function() {
+                    if (d.parallax) {
+                        if (B && !A) {
+                            var a = (s - 0) / 60;
+                            pointerX = (C - -30) * a + 0;
+                            var b = (t - 0) / 60;
+                            pointerY = (D - -30) * b + 0
+                        } else pointerX = y, pointerY = z;
+                        this.parallaxTargX = (pointerX - s / 2) / (d.parallaxMultiplier * this.layer), this.parallaxOffsetX += (this.parallaxTargX - this.parallaxOffsetX) / 10, this.parallaxTargY = (pointerY - t / 2) / (d.parallaxMultiplier * this.layer), this.parallaxOffsetY += (this.parallaxTargY - this.parallaxOffsetY) / 10
+                    }
+                    switch (d.directionX) {
+                        case "left":
+                            this.position.x + this.speed.x + this.parallaxOffsetX < 0 && (this.position.x = v.width() - this.parallaxOffsetX);
+                            break;
+                        case "right":
+                            this.position.x + this.speed.x + this.parallaxOffsetX > v.width() && (this.position.x = 0 - this.parallaxOffsetX);
+                            break;
+                        default:
+                            (this.position.x + this.speed.x + this.parallaxOffsetX > v.width() || this.position.x + this.speed.x + this.parallaxOffsetX < 0) && (this.speed.x = -this.speed.x)
+                    }
+                    switch (d.directionY) {
+                        case "up":
+                            this.position.y + this.speed.y + this.parallaxOffsetY < 0 && (this.position.y = v.height() - this.parallaxOffsetY);
+                            break;
+                        case "down":
+                            this.position.y + this.speed.y + this.parallaxOffsetY > v.height() && (this.position.y = 0 - this.parallaxOffsetY);
+                            break;
+                        default:
+                            (this.position.y + this.speed.y + this.parallaxOffsetY > v.height() || this.position.y + this.speed.y + this.parallaxOffsetY < 0) && (this.speed.y = -this.speed.y)
+                    }
+                    this.position.x += this.speed.x, this.position.y += this.speed.y
+                }, l.prototype.setStackPos = function(a) {
+                    this.stackPos = a
+                }, e(), {
+                    option: m,
+                    destroy: n,
+                    start: k,
+                    pause: j
+                }
+            }
+            var c = "particleground";
+            a.fn[c] = function(d) {
+                if ("string" == typeof arguments[0]) {
+                    var e, f = arguments[0],
+                        g = Array.prototype.slice.call(arguments, 1);
+                    return this.each(function() {
+                        a.data(this, "plugin_" + c) && "function" == typeof a.data(this, "plugin_" + c)[f] && (e = a.data(this, "plugin_" + c)[f].apply(this, g))
+                    }), void 0 !== e ? e : this
+                }
+                return "object" != typeof d && d ? void 0 : this.each(function() {
+                    a.data(this, "plugin_" + c) || a.data(this, "plugin_" + c, new b(this, d))
+                })
+            }, a.fn[c].defaults = {
+                minSpeedX: .1,
+                maxSpeedX: .7,
+                minSpeedY: .1,
+                maxSpeedY: .7,
+                directionX: "center",
+                directionY: "center",
+                density: 1e4,
+                dotColor: "#666666",
+                lineColor: "#666666",
+                particleRadius: 7,
+                lineWidth: 1,
+                curvedLines: !1,
+                proximity: 100,
+                parallax: !0,
+                parallaxMultiplier: 5,
+                onInit: function() {},
+                onDestroy: function() {}
+            }
+        }(jQuery),
+        /**
+         * requestAnimationFrame polyfill by Erik M枚ller. fixes from Paul Irish and Tino Zijdel
+         * @see: http://paulirish.com/2011/requestanimationframe-for-smart-animating/
+         * @see: http://my.opera.com/emoller/blog/2011/12/20/requestanimationframe-for-smart-er-animating
+         * @license: MIT license
+         */
+        function() {
+            for (var a = 0, b = ["ms", "moz", "webkit", "o"], c = 0; c < b.length && !window.requestAnimationFrame; ++c) window.requestAnimationFrame = window[b[c] + "RequestAnimationFrame"], window.cancelAnimationFrame = window[b[c] + "CancelAnimationFrame"] || window[b[c] + "CancelRequestAnimationFrame"];
+            window.requestAnimationFrame || (window.requestAnimationFrame = function(b) {
+                var c = (new Date).getTime(),
+                    d = Math.max(0, 16 - (c - a)),
+                    e = window.setTimeout(function() {
+                        b(c + d)
+                    }, d);
+                return a = c + d, e
+            }), window.cancelAnimationFrame || (window.cancelAnimationFrame = function(a) {
+                clearTimeout(a)
+            })
+        }();
+
+    function showCheck(a) {
+        var c = document.getElementById("myCanvas");
+        var ctx = c.getContext("2d");
+        ctx.clearRect(0, 0, 1000, 1000);
+        ctx.font = "80px 'Microsoft Yahei'";
+        ctx.fillText(a, 0, 100);
+        ctx.fillStyle = "white";
+    }
+    var code;
+
+    function createCode() {
+        code = "";
+        var codeLength = 4;
+        var selectChar = new Array(1, 2, 3, 4, 5, 6, 7, 8, 9, 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'J', 'K', 'L', 'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z');
+        for (var i = 0; i < codeLength; i++) {
+            var charIndex = Math.floor(Math.random() * 60);
+            code += selectChar[charIndex];
+        }
+        if (code.length != codeLength) {
+            createCode();
+        }
+        showCheck(code);
+    }
+
+    function validate() {
+        var inputCode = document.getElementById("J_codetext").value.toUpperCase();
+        var codeToUp = code.toUpperCase();
+        if (inputCode.length <= 0) {
+            document.getElementById("J_codetext").setAttribute("placeholder", "输入验证码");
+            createCode();
+            return false;
+        } else if (inputCode != codeToUp) {
+            document.getElementById("J_codetext").value = "";
+            document.getElementById("J_codetext").setAttribute("placeholder", "验证码错误");
+            createCode();
+            return false;
+        } else {
+            window.open(document.getElementById("J_down").getAttribute("data-link"));
+            document.getElementById("J_codetext").value = "";
+            createCode();
+            return true;
+        }
+
+    }
+</script>
+
+</html>

@@ -69,7 +69,7 @@ if (getPropertyUtils().isReadable(orig, name) &&
 
 仔细查看了下代码，发现`class Stu` 与 `class Tea`的访问权限为`包级`，导致`name`属性不可读，也不可写。
 
-> 解决办法 1 ： 将`class Stu` 与 `class Tea`改为`public class Stu` 与 `public class Tea`。
+* 解决办法 1  - 将`class Stu` 与 `class Tea`改为`public class Stu` 与 `public class Tea`。
 
-> 解决办法 2 ： 不适用apache的BeanUtils.copyProperties，改用spring的BeanUtils.copyProperties(Object src,Object dest)。注意apache与spring的参数顺序。
+* 解决办法 2  - 不适用apache的BeanUtils.copyProperties，改用spring的BeanUtils.copyProperties(Object src,Object dest)。注意apache与spring的参数顺序。
 

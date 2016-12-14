@@ -1,7 +1,7 @@
 
-# BeanUtils.copyProperties(Object dest,Object src)中的拷贝问题
+# BeanUtils.copyProperties(Object dest,Object src)中的拷贝不成功问题
 
-> 导读 ： 今天用`BeanUtils.copyProperties`拷贝属性值时，做了一个测试类，但是爆出一个很奇怪的错误。源对象的属性值无论如何copy不到目标对象中去。
+> 导读 ： 今天用`apache`的`BeanUtils.copyProperties`拷贝属性值时，做了一个测试类，但是爆出一个很奇怪的错误。源对象的属性值无论如何copy不到目标对象中去。
 
 测试代码如下：(分别建立下边三个文件Stu,Tea,Test)
 

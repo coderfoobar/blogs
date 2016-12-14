@@ -71,5 +71,5 @@ if (getPropertyUtils().isReadable(orig, name) &&
 
 * 解决办法 1  - 将`class Stu` 与 `class Tea`改为`public class Stu` 与 `public class Tea`。
 
-* 解决办法 2  - 不适用apache的BeanUtils.copyProperties，改用spring的BeanUtils.copyProperties(Object src,Object dest)。注意apache与spring的参数顺序。
+* 解决办法 2  - 不适用`apache`的`BeanUtils.copyProperties`，改用`spring`的`BeanUtils.copyProperties(Object src,Object dest)`。注意`apache`与`spring`的参数顺序。
 

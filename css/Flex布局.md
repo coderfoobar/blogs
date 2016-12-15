@@ -1,6 +1,28 @@
 
 # Flex 布局
 
+<!-- TOC -->
+
+- [Flex 布局](#flex-%E5%B8%83%E5%B1%80)
+    - [Flex布局是什么？](#flex%E5%B8%83%E5%B1%80%E6%98%AF%E4%BB%80%E4%B9%88)
+    - [基本概念](#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5)
+    - [容器的属性](#%E5%AE%B9%E5%99%A8%E7%9A%84%E5%B1%9E%E6%80%A7)
+        - [flex-direction](#flex-direction)
+        - [flex-wrap](#flex-wrap)
+        - [flex-flow](#flex-flow)
+        - [justify-content](#justify-content)
+        - [align-items属性](#align-items%E5%B1%9E%E6%80%A7)
+        - [align-content](#align-content)
+    - [项目的属性](#%E9%A1%B9%E7%9B%AE%E7%9A%84%E5%B1%9E%E6%80%A7)
+        - [order属性](#order%E5%B1%9E%E6%80%A7)
+        - [flex-grow属性](#flex-grow%E5%B1%9E%E6%80%A7)
+        - [flex-shrink属性](#flex-shrink%E5%B1%9E%E6%80%A7)
+        - [flex-basis 属性](#flex-basis-%E5%B1%9E%E6%80%A7)
+        - [flex属性](#flex%E5%B1%9E%E6%80%A7)
+        - [align-self属性](#align-self%E5%B1%9E%E6%80%A7)
+
+<!-- /TOC -->
+
 ## Flex布局是什么？
 
 Flex是Flexible box的缩写，意为“弹性布局”，用来为盒状模型提供最大的灵活性。

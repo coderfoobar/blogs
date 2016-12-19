@@ -50,3 +50,8 @@ alter table 【表名字】 add unique index_name(【列名】);
 ```sql
 alter table 【表名字】 drop index index_name;
 ```
+
+* 11. 更改主键自增起始值
+```sql
+alter table table_name auto_increment=1000;
+```

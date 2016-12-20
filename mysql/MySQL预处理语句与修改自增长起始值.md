@@ -5,7 +5,10 @@
 
 利用重定向管道符 `<` 执行sql脚本:
 
-root@centos-1 $ mysql -uroot -p123456 < ttt.sql
+```shell
+$ mysql -uroot -p123456 < ttt.sql
+```
+
 
 ttt.sql 文件内容:
 

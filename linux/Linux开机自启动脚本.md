@@ -1,5 +1,5 @@
 
-# Linux开机自启动
+# Linux开机自启动脚本
 
 ## root权限编辑`/etc/rc.local`
 
@@ -22,7 +22,8 @@
 
 > `/etc/init.d`下都是可执行脚本，实际上，它们都是服务脚本，按照一定的格式编写，Linux在启动时会自动执行，类似与Windows下的服务。
 
-1. 编写脚本SetupOnStart
+* 1. 编写脚本SetupOnStart
+
 ```shell
 #!/bin/bash
 #chkconfig:23456 80 05 --指定在哪几个级别执行，0一般指关机，6指的是重启，其他为正常启动。80为启动的优先级，05为关闭的优先级别  
@@ -31,8 +32,14 @@
 # Users goals to be executed.
 
 ```
-2. chmod +x SetupOnStart
-3. chkconfig --add SetupOnStart
-4. chkconfig --list SetupOnStart
+
+* 2. 执行以下命令： 
+
+```shell
+$ chmod +x SetupOnStart
+$ chkconfig --add SetupOnStart
+$ chkconfig --list SetupOnStart
+```
+
 
 ---

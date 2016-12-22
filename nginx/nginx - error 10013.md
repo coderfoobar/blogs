@@ -7,7 +7,7 @@
 
 * 原因: `nginx`默认`80`端口被`System`占用，造成`nginx`启动报错的解决方案。
 
-排错：
+***排错：***
 
 * 在cmd窗口运行如下命令
 
@@ -17,7 +17,7 @@ C:\Users\Administrator> netstat -aon | findstr :80
 # 看到80端口果真被占用。发现占用的pid是4，名字是System。怎么禁用呢？
 ```
 
-解决办法:
+***解决办法:***
 
 * 1、打开注册表：`regedit`
 
@@ -27,4 +27,4 @@ C:\Users\Administrator> netstat -aon | findstr :80
 
 * 4、重启系统，`System`进程不会占用`80`端口
 
-重启之后，`start nginx.exe` 。在浏览器中，输入`127.0.0.1` 或者 `localhost`，即可看到亲爱的“Welcome to nginx!” 了。
+重启系统之后，在命令行窗口中运行`start nginx.exe` 。在浏览器中，输入`127.0.0.1` 或者 `localhost`，即可看到“Welcome to nginx!” 了。

@@ -9,7 +9,7 @@
 
 排错：
 
-    在cmd窗口运行如下命令
+* 在cmd窗口运行如下命令
 
 ```shell
 C:\Users\Administrator> netstat -aon | findstr :80

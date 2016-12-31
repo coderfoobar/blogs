@@ -1,0 +1,74 @@
+================= 华硕UX501VW 驱动下载地址
+https://www.asus.com.cn/Notebooks/ASUS-ZenBook-Pro-UX501VW/HelpDesk_Download/
+
+================= win10 key
+win10 enterprise = NHYPH-FHVH6-QMF9Y-4H9X9-66PJR
+
+================= office 2016 key
+office 2016 = JR73K-FNRM4-9XBTR-9QTXT-FVWDP
+英国 4045425 8637411 9502731 4560966 5834091 5649673 9474062 3803940 9278001
+
+A   B   C
+212594   442321   081955
+D   E   F
+628416   138344   336504
+G   H
+834074   030535
+
+================= visio 2016 key
+visio 2016 =  CQMPR-7NBT7-KB3QQ-BMMFX-9HKBB
+
+
+================= xmanger enterprise
+Xlpd
+Xlpd是一个用于MS Windows平台的LPD(行式打印机虚拟后台程序)应用程序。安装了Xlpd后，带有打印机的本地PC就成为了一个打印服务器，来自不同远程系统的打印任务都能在网络环境中得到请求和处理。(共享软件)
+Xstart
+Xstart是一个窗口化的登陆界面，要求填入session，host，protocol，user name， password。可进行远程登陆
+
+Xshell 5 注册码： 690313-111999-999313
+Xftp 5 注册码：101210-450789-147200
+
+Xmanager 5 注册码：101210-450789-147200
+
+
+Xshell4.0注册码 690313-111999-999313
+
+xftp 4.0注册码 101210-450789-147200
+
+================= pl / sql developer
+
+Product Code(产品编号)：4t46t6vydkvsxekkvf3fjnpzy5wbuhphqz
+serial Number(序列号)：601769
+password(口令)：xs374ca
+
+
+========================== winrar 新建文本文件 另存为rarreg.key,粘贴至winrar的安装目录
+RAR registration data
+
+Team EAT
+
+Single PC usage license
+
+UID=c97811c0f0ceeb28c500
+
+6412212250c50047bf9963514c7f193eb62337f99488c06cee841a
+
+6ccc09124aeb25972ad56035c6ab9048e2c5c62f0238f183d28519
+
+aa87488bf38f5b634cf28190bdf438ac593b1857cdb55a7fcb0eb0
+
+c3e4c2736090b3dfa45384e08e9de05c5860d61b3fad98ab846f2c
+
+62a962e2dbbce87706fecf1abea5e40bc5f7d840f55cfb5a4f5a39
+
+f9141fe9b383ce10abb9ed6d61be1f4b52e0777efdbaa0c9608eb9
+
+9f075b0c716d7203d0b5e1e5ced22523726d8ec919c13662850743
+
+========================= vmware workstation pro 12 
+
+5A02H-AU243-TZJ49-GTC7K-3C61N
+
+
+
+=========================

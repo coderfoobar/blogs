@@ -1,7 +1,7 @@
 
 # Win10启用与关闭防火墙
 
-1. Windows徽标 + R ，输入control ，点击运行，打开控制面板
+1. `Windows徽标 + R` ，输入`control` ，点击运行，打开`控制面板`
 2. 系统与安全
 3. Windows 防火墙
 4. 左侧 - 启用与关闭Windows防火墙

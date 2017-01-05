@@ -3,10 +3,24 @@
 
 > Create Time : 2017年1月5日
 
+* 1. 解压
+
+解压方式一：
+```bat
+unzip -d <directory> name.jar
+# 将name.jar解压倒directory (directory默认可以不存在)
+```
+解压方式二：
+```bat
+jar -xvf name.jar
+```
+
+* 2. 反编译
+
 ```bat
 jad -o -r -dC:\Resource\tmp\rmcs-dispatch-center-v2-raf-s-src -sjava C:\Resource\tmp\rmcs-dispatch-center-v2-raf-s\**\*.class
 ```
-
+> 注意：
 * `-o`  - overwrite output files without confirmation (default: no) 无需确定覆写文件
 * `-r`  - restore package directory structrure 恢复包目录结构
 * `-s` <ext></ext>- output file extension (by default '.jad') 如果不设置为-sjava，则默认扩展名为.jad

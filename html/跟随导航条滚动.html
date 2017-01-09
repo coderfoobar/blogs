@@ -77,25 +77,25 @@
     </div>
     <script type="text/javascript">
         $(function() {
-            var line_left = $('.list li').position().left
-            var line_widht = $('.list li').outerWidth()
+            var line_left = $('.list li').position().left ;
+            var line_widht = $('.list li').outerWidth() ;
             $('.line').css({
                 'width': line_widht,
                 'left': line_left
-            })
+            }) ;
             $('.list li').hover(function() {
-                var line_left = $(this).position().left
-                var line_widht = $(this).outerWidth()
+                var line_left = $(this).position().left ;
+                var line_widht = $(this).outerWidth() ;
                 $('.line').css({
                     'width': line_widht,
                     'left': line_left
-                })
+                }) ;
             }, function() {
                 $('.line').css({
                     'width': line_widht,
                     'left': line_left
                 })
-            })
+            }) ;
         })
     </script>
 

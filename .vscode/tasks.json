@@ -4,7 +4,7 @@
     "version": "0.1.0",
     "command": "Chrome", //使用chrome浏览器
     "windows": {
-        "command": "C:/Users/coder.foobar/AppData/Local/Google/Chrome/Application/chrome.exe" //chrome浏览器的路径
+        "command": "C:/Program Files (x86)/Google/Chrome/Application/chrome.exe" //chrome浏览器的路径
     },
     "isShellCommand": true,
     "args": ["${file}"], //表示对当前文件进行操作

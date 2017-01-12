@@ -51,3 +51,23 @@ sudo service sshd restart
 ssh HadoopSlave1
 # 此时连接不需要输入密码
 ```
+
+
+## 常见错误
+
+### 配置问题
+
+* 1. 检查配置文件/etc/ssh/sshd_config是否开启了AuthorizedKeysFile选项
+
+* 2. 检查AuthorizedKeysFile选项是否存在并内容正常
+
+### 目录权限问题
+
+* 1. `~` 权限设置为700   `sudo chmod 700 ~`
+* 2. `~/.ssh` 权限设置为700   `sudo chmod 700 ~/.ssh`
+* 3. `~/.ssh/authorized_keys`的权限设置为600   `sudo chmod 700 ~/.ssh/authorized_keys`
+
+之后，重启SSH服务
+```shell
+sudo service sshd restart
+```

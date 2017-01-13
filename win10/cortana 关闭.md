@@ -9,4 +9,4 @@
 * 6. 关键词cortana，找到相关的Cortana设置，禁用
 * 7. 找到Cortana进程，杀掉
 
-结果就是 关闭Cortana，保留搜索功能
+结果就是 关闭Cortana，保留搜索文件与程序的功能

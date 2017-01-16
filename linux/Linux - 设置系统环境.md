@@ -67,5 +67,54 @@ $ ping hadoop1
 * 2. 修改`/etc/selinux/config`文件,将SELINUX=enforcing 改为SELINUX=disabled，修改完成后重启机器生效。
 
 
+# 配置运行环境
+
+## 更新OpenSSL
+
+```shell
+$ yum update openssl
+```
+
+## 修改SSH配置文件
+
+* 1. 以root用户使用如下命令打开sshd_config配置文件
+```shell
+$ vi /etc/ssh/sshd_config
+# -----------------------开放三个配置
+
+RSAAuthentication yes
+PubkeyAuthentication yes
+AuthorizedKeyFile .ssh/authorized_keys
+
+# -----------------------
+```
+
+* 2. 配置后重启服务
+
+```shell
+$ service sshd restart
+```
+
+## 增加hadoop组和用户
+
+使用如下命令增加hadoop用户组和hadoop用户（密码），创建hadoop组件存放目录
+```shell
+$ groupadd -g 1000 hadoop1
+$ useradd -u 2000 -g hadoop hadoop
+$ mkdir -p /app/hadoop
+$ chown -R hadoop:hadoop /app/hadoop
+$ passwd hadoop
+```
+
+创建hadoop用户上传文件目录，设置该目录和文件夹为hadoop
+```shell
+$ mkdir /home/hadoop/upload
+$ chown -R hadoop:hadoop /home/hadoop/upload
+```
+
+
+
+
+
 
 

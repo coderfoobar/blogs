@@ -232,7 +232,15 @@ $ chown -R hadoop:hadoop /home/hadoop/upload
 
 ## 安装Java
 
+1. 卸载OpenJDK
+
+2. 安装Oracle JDK
+
+3. 配置Java环境变量
+
 ## 安装Scala
+
+1. 
 
 ## 安装Maven
 

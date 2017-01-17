@@ -19,7 +19,7 @@ AuthorizedKeyFile .ssh/authorized_keys
 
 ## 生成SSH密钥
 
-在集群的每台主机上执行下面的命令：
+在集群的每台主机上执行下面的命令，`一直按回车`：
 ```shell
 ssh-keygen -t rsa
 ```

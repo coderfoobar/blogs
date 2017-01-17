@@ -176,10 +176,17 @@ $ /etc/init.d/network restart
 $ service network restart
 ```
 
-## 关闭iptables
+## 关闭iptables或防火墙
 
 ```shell
 chkconfig iptables off
+```
+
+在Redhat 7之后使用：
+
+```shell
+systemctl stop firewalld.service  #停止防火墙服务
+# systemctl disable firewalld.service  # 防火墙服务不随机启动
 ```
 
 ## 关闭SELinux

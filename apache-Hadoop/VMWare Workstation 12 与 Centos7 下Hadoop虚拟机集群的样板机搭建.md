@@ -81,11 +81,11 @@ $ ifconfig #查看网卡信息
 
 ```
 
-2. 配置网络
+2. 配置静态IP
 
 2.1. VMWare Workstation 配置通过 NAT 方式上外网。
 
-2.2. 配置静态IP：
+2.2. 网卡设置
 
 ```shell
 $ vi /etc/sysconfig/network-scripts/ifcfg-eth0
@@ -157,7 +157,11 @@ nameserver 192.168.84.254
 ```shell
 vi /etc/hosts
 
-#  添加----------
+#  样板----------
+
+127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4 hadoop1
+::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
+
 192.168.84.1 hadoop1
 192.168.84.2 hadoop2
 192.168.84.3 hadoop3
@@ -249,8 +253,6 @@ $ chown -R hadoop:hadoop /home/hadoop/upload
 ## 编译安装hadoop
 
 ## 编译安装Spark
-
-
 
 
 

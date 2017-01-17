@@ -9,7 +9,7 @@
 
 ### 关闭防火墙及SELinux
 
-### 增加hadoop组和hadoop用户
+### 增加hadoop组和hadoop用户,将hadoop添加到sudoers
 
 ### 卸载OpenJDK，安装Oracle JDK
 

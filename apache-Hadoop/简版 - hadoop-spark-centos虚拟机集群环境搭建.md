@@ -223,7 +223,7 @@ systemctl enable firewalld.service
 
 
 
-### Hive 
+### Hive (连接MySQL)
 
 > MySQL : https://dev.mysql.com/downloads/mysql/
 
@@ -324,18 +324,95 @@ mysql > exit;
 # mysql console end  ------------------
 ```
 
-* 下载,解压，安装，配置Hive
+* 下载,解压，安装Hive
 
 ```shell
 tar -zxvf apache-hive-2.1.1-bin.tar.gz
 mv apache-hive-2.1.1-bin /app/hadoop/hive-2.1.1
 # 将mysql连接驱动jar包放在/app/hadoop/hive-2.1.1
-
+mv mysql-connector-5.1.3-bin.jar /app/hadoop/hive-2.1.1
 ```
 
-#### 安装MySQL
+* 配置Hive
 
-#### 配置Hive
+```shell
+# 配置 $HIVE_HOME/conf/hive-env.sh
+export HADOOP_HOME=/app/hadoop/hadoop-2.7.3
+export HIVE_HOME=/app/hadoop/hive-2.1.1
+export HIVE_CONF_DIR=$HIVE_HOME/conf
+```
+
+```shell
+
+# 配置 $HIVE_HOME/conf/hive-site.xml
+# -----------------
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+<!--
+Licensed to the Apache Software Foundation (ASF) under one or more
+contributor license agreements.  See the NOTICE file distributed with
+this work for additional information regarding copyright ownership.
+The ASF licenses this file to You under the Apache License, Version 2.0
+(the "License"); you may not use this file except in compliance with
+the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+  -->
+<configuration> 
+  <property>
+	<name>hive.metastore.uris</name>
+	<value>thrift://hadoop1:9083</value>
+	<description>Thrift URI for the remote metastore. ...</description>
+  </property>  
+  <property> 
+    <name>javax.jdo.option.ConnectionURL</name>  
+    <value>jdbc:mysql://hadoop1:3306/hive?createDatabaseIfNotExist=true</value>  
+    <description>metadata is stored in a MySQL server</description> 
+  </property>  
+  <property> 
+    <name>javax.jdo.option.ConnectionDriverName</name>  
+    <value>com.mysql.jdbc.Driver</value>  
+    <description>MySQL JDBC driver class</description> 
+  </property>  
+  <property> 
+    <name>javax.jdo.option.ConnectionUserName</name>  
+    <value>hive</value>  
+    <description>user name for connecting to mysql server</description> 
+  </property>  
+  <property> 
+    <name>javax.jdo.option.ConnectionPassword</name>  
+    <value>hive</value>  
+    <description>password for connecting to mysql server</description> 
+  </property> 
+  <property>
+	 <name>hive.metastore.schema.verification</name>
+	 <value>false</value>
+</property>
+</configuration>
+# -----------------
+```
+
+* 启动hive
+
+```shell
+# 初次运行
+./bin/schematool -dbType mysql -initSchema --verbose
+
+# 每次进入hvie console前，启动metastore与hiveserver2
+hive --service metastore &
+hive --service hiveserver2 &
+# 进入hive命令行
+hive
+```
+
+
+
 
 #### Hive Console
 

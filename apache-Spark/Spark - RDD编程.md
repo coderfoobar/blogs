@@ -69,18 +69,18 @@ JavaRDD<String> errorRDD = inputRDD.filter(
 行动操作：
 
 每当调用一个行动操作时，整个RDD都会从头开始计算。
-* collect() - 获取整个RDD中的数据，不能用在大规模数据集上。通常要把数据写到注入HDFS或者Amazon S3这样的分布式存储系统中。
-* count() - RDD中的元素个数
-* countByValue() - 各元素在RDD中出现的次数
-* take(num) - 从RDD中返回num个元素
-* top() - 从RDD中返回最前面的num个元素
-* takeOrdered(num)(ordering) - 从RDD中按照提供的顺序返回最前面的num个元素
-* takeSample(withReplacemet , num , [seed]) - 从RDD中返回任意一些元素 
-* reduce(func) - 并行整合RDD中的所有数据
-* fold(zero)(func) - 和reduce函数一样，但是需要提供初始值
-* aggregate(zeroValue)(seqOp,combOp) - 和reduce()相似，但是通常返回不同类型的函数
-* first()
-* foreach(func) - 对RDD中的每个元素使用给定的函数
+* `collect()` - 获取整个RDD中的数据，不能用在大规模数据集上。通常要把数据写到注入HDFS或者Amazon S3这样的分布式存储系统中。
+* `count()` - RDD中的元素个数
+* `countByValue()` - 各元素在RDD中出现的次数
+* `take(num)` - 从RDD中返回num个元素
+* `top()` - 从RDD中返回最前面的num个元素
+* `takeOrdered(num)(ordering)` - 从RDD中按照提供的顺序返回最前面的num个元素
+* `takeSample(withReplacemet , num , [seed])` - 从RDD中返回任意一些元素 
+* `reduce(func)` - 并行整合RDD中的所有数据
+* `fold(zero)(func)` - 和reduce函数一样，但是需要提供初始值
+* `aggregate(zeroValue)(seqOp,combOp)` - 和reduce()相似，但是通常返回不同类型的函数
+* `first()`
+* `foreach(func)` - 对RDD中的每个元素使用给定的函数
 
 惰性求值：
 我们不应该把RDD看作存储特定数据的数据集，而最好把每个RDD当作我们通过转化操作构建出来的、记录如何计算数据的指令列表。

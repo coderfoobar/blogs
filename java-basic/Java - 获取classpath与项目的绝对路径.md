@@ -52,5 +52,7 @@ public InputStream getResourceAsStream(String name);
 
 * 4. 绝对不要使用硬编码的绝对路径，因为我们可以使用`ClassLoader.getSystemResource("")`方法得到当前classpath的绝对路径。
 
+//获取当前jar路径
+MyClass.class.getProtectionDomain().getCodeSource().getLocation();
 
 

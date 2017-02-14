@@ -1,7 +1,7 @@
 
 # Java锁的种类以及辨析
 
-> Create Time : 2017年2月6日   Link ： http://ifeve.com/
+> Create Time : 2017年2月6日   Link ： http://ifeve.com/java_lock_see/
 
 锁作为并发共享数据，保证一致性的工具，在Java平台有多种实现（如synchronized和ReentranLock等等）。这些已经写好提供的所为我们开发提供了便利，但是锁的具体性质和类型却很少被提及。
 
@@ -217,10 +217,159 @@ public class CLHLock1 {
 
 在竞争激烈的情况下，阻塞所的性能要明显高于自旋锁。理想的情况是：在线程竞争不激烈的情况下，使用自旋锁；在竞争激烈的情况下，使用阻塞锁。
 
+## 可重入锁
+
+本文讲的是广义上的可重入锁，而不是单指Java下的ReentrantLock。
+
+> 可重入锁，也叫递归锁，指的是同一线程 外层函数获得锁之后，内层递归函数仍然能获取该锁的代码，但不受影响。
+
+在Java环境下ReentrantLock和synchronized都是可重入锁。
+
+下面使用实例：
+```Java
+public class Test implements Runnable{
+	public synchronized void get(){
+		System.out.println(Thread.currentThread().getId());
+		set();
+	}
+
+	public synchronized void set(){
+		System.out.println(Thread.currentThread().getId());
+	}
+
+	@Override
+	public void run() {
+		get();
+	}
+	public static void main(String[] args) {
+		Test ss=new Test();
+		new Thread(ss).start();
+		new Thread(ss).start();
+		new Thread(ss).start();
+	}
+}
+```
+
+```Java
+import java.util.concurrent.locks.ReentrantLock;
+
+public class Test implements Runnable {
+	ReentrantLock lock = new ReentrantLock();
+	public void get() {
+		lock.lock();
+		System.out.println(Thread.currentThread().getId());
+		set();
+		lock.unlock();
+	}
+
+	public void set() {
+		lock.lock();
+		System.out.println(Thread.currentThread().getId());
+		lock.unlock();
+	}
+
+	@Override
+	public void run() {
+		get();
+	}
+
+	public static void main(String[] args) {
+		Test ss = new Test();
+		new Thread(ss).start();
+		new Thread(ss).start();
+		new Thread(ss).start();
+	}
+}
+```
+
+两个例子的输出结果都是正确的，即 同一个线程id 被连续输出两次。
+
+结果如下：
+```txt
+11
+11
+13
+13
+12
+12
+```
+
+可重入锁最大的作用是避免死锁。我们可以 以自旋锁作为例子：
+```Java
+public class SpinLock{
+    private AtomicReference<Thread> owner = new AtomicReference<Thread>();
+    public void lock(){
+        Thread current = Thread.currentThread();
+        while(!owner.compareAndSet(null,current)){     }
+    }
+
+    public void unlock(){
+        Thread current = Thread.currentThread();
+        owner.compareAndSet(current,null);
+    }
+}
+```
+
+对于自旋锁来说：
+1. 若有同一线程两次调用lock()，会导致第二次调用lock位置进行自旋，产生了死锁。说明则个锁并不是可重入的。（在lock函数内，应验证线程是否为已经获得锁的线程。）
+2. 若1的问题已经解决，当unlock函数第一次调用时，就已经将锁释放了，而实际上不应该释放锁。（采用计数次进行统计）修改之后，如下：
+```Java
+public class SpinLock1 {
+	private AtomicReference<Thread> owner =new AtomicReference<>();
+	private int count =0;
+	public void lock(){
+		Thread current = Thread.currentThread();
+		if(current==owner.get()) {
+			count++;
+			return ;
+		}
+
+		while(!owner.compareAndSet(null, current)){
+
+		}
+	}
+	public void unlock(){
+		Thread current = Thread.currentThread();
+		if(current==owner.get()){
+			if(count!=0){
+				count--;
+			}else{
+				owner.compareAndSet(current, null);
+			}
+
+		}
+
+	}
+}
+```
+
+该自旋锁即位可重入锁。
 
 
 
+## 互斥锁
 
+## 悲观锁
+
+## 公平锁
+
+## 非公平锁
+
+## 偏向锁
+
+## 对象锁
+
+## 线程锁
+
+## 锁粗化
+
+## 轻量级锁
+
+## 锁消除
+
+## 锁膨胀
+
+## 信号量
 
 
 

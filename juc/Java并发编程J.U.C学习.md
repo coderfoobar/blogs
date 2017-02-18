@@ -9,25 +9,25 @@
 
 另外，转载请注明链接，写篇文章不容易啊，http://www.cnblogs.com/chenpi/archive/2016/07/06/5614290.html
 
-## JSR 166及J.U.C
+## `JSR 166`及`J.U.C`
 
-### 什么是JSR
+### 什么是`JSR`
 
-JSR，全称Java Specification Requests,即Java规范提案，主要是用于向JCP（Java Community Process）提出新增标准化技术规范的正式请求。每次Java版本更新都会有对应的JSR更新，比如在Java 8 版本中，其新特性Lamda表达式对应的是JSR 335，新的日期和时间API对应的是JSR 310.
+`JSR`，全称`Java Specification Requests`,即`Java规范提案`，主要是用于向`JCP（Java Community Process）`提出新增标准化技术规范的正式请求。每次Java版本更新都会有对应的JSR更新，比如在Java 8 版本中，其新特性`Lamda表达式`对应的是`JSR 335`，`新的日期和时间API`对应的是`JSR 310`.
 
-### 什么是JSR 166
+### 什么是`JSR 166`
 
-当然，本文的关注点仅仅是JSR 166，它是一个关于Java变成的规范提案，在JDK中，该规范由java.util.concurrent包实现，是在JDK 5.0的时候被引入的；
+当然，本文的关注点仅仅是`JSR 166`，它是一个关于Java编程的规范提案，在`JDK`中，该规范由`java.util.concurrent`包实现，是在`JDK 5.0`的时候被引入的；
 
-另外JDK6引入Deques、Navigable collections，对应的是JSR 166x，JDK 7 引入fork-join框架，用于并行执行任务，对应的是JSR 166y.
+另外`JDK6`引入`Deques`、`Navigable collections`，对应的是`JSR 166x`，`JDK 7`引入`fork-join框架`，用于`并行`执行任务，对应的是`JSR 166y`.
 
-### 什么是J.u.C
+### 什么是`J.u.C`
 
-即java.util.concurrent的缩写，该包参考子EDU.oswego.cs.dll.util.concurrent,是JSR 166标准规范的一个实现。
+即`java.util.concurrent`的缩写，该包参考子`EDU.oswego.cs.dll.util.concurrent`,是`JSR 166`标准规范的一个实现。
 
 ### 膜拜
 
-那么，JSR 166以及J.u.C包的作者是谁呢？没错，就是Doug Lea大神，挺牛逼的，大神级别人物。
+那么，`JSR 166`以及`J.U.C`包的作者是谁呢？没错，就是`Doug Lea`大神，挺牛逼的，大神级别人物。
 
 ## Executor框架（线程池、Callable、Future）
 
@@ -51,7 +51,7 @@ ScheduledExecutorService              ThreadPoolExecutor        ForkJoinPool
              ScheduledThreadPoolExecutor
 ```
 
-其中，最顶层是Executor接口，它的定义很简单，一个用于执行任务的executor方法，如下所示：
+其中，最顶层是`Executor`接口，它的定义很简单，一个用于执行任务的`execute`方法，如下所示：
 
 ```Java
 public interface Executor{
@@ -59,7 +59,7 @@ public interface Executor{
 }
 ```
 
-另外，我们还可以看到一个Executors类，它是一个工具类（有点类似于集合框架Collections类），用于创建ExecutorService、ScheduledExecutorService、ThreadFactory和Callable对象。
+另外，我们还可以看到一个`Executors类`，它是一个工具类（有点类似于集合框架`Collections类`），用于创建`ExecutorService`、`ScheduledExecutorService`、`ThreadFactory`和`Callable`对象。
 
 ### 优点：
 
@@ -67,7 +67,7 @@ public interface Executor{
 
 ### 典型步骤：
 
-定义好任务（如Callable对象），把它提交给ExecutorService（如线程池）去执行，得到Future对象，然后调用Future的get方法等待执行结果即可。
+定义好任务（如`Callable`对象），把它提交给`ExecutorService`（如线程池）去执行，得到Future对象，然后调用Future的get方法等待执行结果即可。
 
 ### 什么是任务
 
@@ -92,22 +92,22 @@ result.get();
 
 ### 补充： 批量任务的执行方式
 
-* 方式一： 首先定义任务集合，然后定义Future集合哟关于存放执行结果，执行任务，最后遍历Future集合获取结果；
+* 方式一： 首先定义任务集合，然后定义`Future`集合哟关于存放执行结果，执行任务，最后遍历Future集合获取结果；
     * 优点 - 可以依次得到有序的结果；
     * 缺点 - 不能及时获取已经完成任务的执行结果。
-* 方式二： 首先定义任务集合，通过CompletionService包装ExecutorService ,执行任务，然后调用其take()方法去取Future对象。
+* 方式二： 首先定义任务集合，通过`CompletionService`包装`ExecutorService` ,执行任务，然后调用其`take()`方法去取`Future`对象。
     * 优点 - 及时得到已完成任务的执行结果。
     * 缺点 - 不能依次得到结果。
 
-这里稍微解释下，在方式一中，从集合中便利的每个Future对象并不一定处于完成状态，这时调用get()方法就会被阻塞住，所以后面的任务即使已经完成也布恩那个得到结果；而方式二中，CompletionService的实现是维护一个保存Future对象的BlockingQueue，只有当这个Future对象状态是结束的时候，才会到这个Queue中，所以调用take()能从阻塞队列中拿到最新的已完成任务的结果。
+这里稍微解释下，在方式一中，从集合中便利的每个`Future`对象并不一定处于完成状态，这时调用`get()`方法就会被阻塞住，所以后面的任务即使已经完成也布恩那个得到结果；而方式二中，`CompletionService`的实现是维护一个保存`Future`对象的`BlockingQueue`，只有当这个`Future`对象状态是结束的时候，才会到这个`Queue`中，所以调用`take()`能从阻塞队列中拿到最新的已完成任务的结果。
 
 ## `AbstractQueuedSynchronizer` (AQS框架)
 
 ### 什么是AQS框架
 
-AQS框架是J.u.c中实现锁以及同步机制的基础，其底层是通过调用`LockSupport.unpark()`和`LockSupport.park()`实现线程的阻塞和唤醒。
+`AQS`框架是J.u.c中实现锁以及同步机制的基础，其底层是通过调用`LockSupport.unpark()`和`LockSupport.park()`实现线程的阻塞和唤醒。
 
-`AbstractQueuedSynchronizer`是一个抽象类，主要是维护了一个int类型的state属性和一个非阻塞、先进先出的线程等待队列。其中state使用volatile修饰的，保证线程之间的可见性，队列的入队和出队操作都是无锁操作，基于自旋锁和CAS实现。另外，AQS分为两种模式：独占模式和共享模式，想ReentranLock是基于独占模式实现的，CountDownLatch、CyclicBarrier等是基于共享模式。
+`AbstractQueuedSynchronizer`是一个抽象类，主要是维护了一个`int`类型的`state`属性和一个非阻塞、先进先出的线程等待队列。其中state使用`volatile`修饰的，保证线程之间的可见性，队列的入队和出队操作都是无锁操作，基于`自旋锁`和`CAS`实现。另外，AQS分为两种模式：独占模式和共享模式，想`ReentranLock`是基于独占模式实现的，`CountDownLatch`、`CyclicBarrier`等是基于共享模式。
 
 ### 例子
 
@@ -128,7 +128,7 @@ final void lock(){
 
 ## Locks和Condition（锁和条件变量）
 
-先看一下Lock接口提供的主要方法，如下：
+先看一下`Lock`接口提供的主要方法，如下：
 * `lock()` - 等待获取锁
 * `lockInterruptibly()` - 可中断等待获取锁，`synchronized`无法实现可中断等待
 * `tryLock()` - 尝试获取锁，立即返回true或false
@@ -139,28 +139,28 @@ final void lock(){
 关于Lock接口的实现，我们主要关注以下两个类:
 * `ReentrantLock` 
 
-可重入锁，也叫递归锁，是指一个线程获取锁之后，再次获取该锁时，不需要重新等待获取，ReentrantLock分为公平锁和非公平锁，公平锁指的是严格按照先来先得的顺序去获取锁，而非公平锁每次获取锁时，是先直接尝试获取锁，获取不到，再按照先来先得的顺序排队等待。
+可重入锁，也叫递归锁，是指一个线程获取锁之后，再次获取该锁时，不需要重新等待获取，`ReentrantLock`分为公平锁和非公平锁，公平锁指的是严格按照先来先得的顺序去获取锁，而非公平锁每次获取锁时，是先直接尝试获取锁，获取不到，再按照先来先得的顺序排队等待。
 
-注意： ReentrantLock和synchronized都是可重入锁。
+注意： `ReentrantLock`和`synchronized`都是`可重入锁`。
 
 * `ReentrantReadWriteLock`
 
-可重入读写锁，指的是没有线程进行写操作时，多个线程可同时进行读操作。当有线程进行写操作时，其他读写操作只能等待，即“读-读能共存，读-写不能共存，写-写不能共存”。
+可重入读写锁，指的是没有线程进行写操作时，多个线程可同时进行读操作。当有线程进行写操作时，其他读写操作只能等待，即“`读-读能共存，读-写不能共存，写-写不能共存`”。
 
 在读多于写的情况下，读写锁能够提供比排他锁更好的并发性和吞吐量。
 
 * Condition
 
-Condition对象是由Lock对象创建的，一个Lock对象可以创建多个Condition，其实Lock和Condition都是基于AQS实现的。
+`Condition`对象是由`Lock`对象创建的，一个`Lock`对象可以创建多个`Condition`，其实`Lock`和`Condition`都是基于`AQS`实现的。
 
-Condition对象主要用于线程的等待和唤醒，在JDK5之前，线程的等待唤醒是用Object对象的`wait/notify/notifyAll`方法实现的，使用起来不是很方便。
+`Condition`对象主要用于线程的等待和唤醒，在`JDK5`之前，线程的等待唤醒是用`Object`对象的`wait/notify/notifyAll`方法实现的，使用起来不是很方便。
 
-在JDK5之后，J.u.C包提供了Condition，其中：
+在`JDK5`之后，`J.U.C`包提供了`Condition`，其中：
 * `Condition.await`对应于`Object.wait`
 * `Condition.signal`对应于`Object.notify`
 * `Condition.signalAll`对应于`Object.notifyAll`
 
-使用Condition对象有一个比较明显的好处是一个锁可以创建多个Condition对象，我们可以给某些类线程分配一个Condition，然后就可以唤醒特定类的线程。
+使用`Condition`对象有一个比较明显的好处是一个锁可以创建多个`Condition`对象，我们可以给某些类线程分配一个`Condition`，然后就可以唤醒特定类的线程。
 
 ## Synchronizers（同步器）
 
@@ -173,14 +173,14 @@ J.U.C中同步器主要用于协助线程同步，有以下四种：
 
 ### 闭锁CountDownLatch
 
-闭锁主要用于让一个主线程等待一组时间发生后继续执行，这里的事件其实就是指CountDownLatch对象的countDown方法。注意其他线程调用完countDown方法后，是会继续执行的。具体如下图所示：
+闭锁主要用于让一个主线程等待一组时间发生后继续执行，这里的事件其实就是指`CountDownLatch`对象的`countDown`方法。注意其他线程调用完`countDown`方法后，是会继续执行的。具体如下图所示：
 
 ```Graph
 
 ```
-在CountDownLatch内部，包含一个计数器，一开始初始化为一个整数（事件个数），发生一个时间后，调用countDown方法，计数器减1，await用于等待计数器为0后继续执行当前线程；
+在`CountDownLatch`内部，包含一个计数器，一开始初始化为一个整数（事件个数），发生一个时间后，调用`countDown`方法，计数器减1，`await`用于等待计数器为0后继续执行当前线程；
 
-如上图：TA主线程会一直等待，知道cnt=0，才继续执行，可参照之前写的一篇文章，如下链接，里面有一个闭锁的demo:
+如上图：TA主线程会一直等待，直到`cnt=0`，才继续执行，可参照之前写的一篇文章，如下链接，里面有一个闭锁的demo:
 http://www.cnblogs.com/chenpi/p/5358579.html
 
 ### 栅栏 CyclicBarrier

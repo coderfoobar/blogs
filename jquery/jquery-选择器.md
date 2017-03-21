@@ -13,7 +13,9 @@ id  String V1.0
 用于搜索的通过元素的id属性中给定的值。
 
 ### 返回值
+```
 Array<Element>
+```
 ### 示例
 ---
 * 描述 - 查找ID为 "myDiv"的元素。
@@ -62,7 +64,9 @@ element String V1.0
 
 一个用于搜索的元素。只想DOM系欸但的标签名。
 ### 返回值
+```
 Array<Element(s)>
+```
 ### 示例
 * 描述 - 查找一个DIV元素。
 

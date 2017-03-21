@@ -86,3 +86,39 @@ $("div")
 ```
 [<div>DIV1</div>,<div>DIV2</div>]
 ```
+
+---
+---
+
+
+## .class
+
+### 概述
+根绝给定的class类名匹配元素。
+### 参数
+class String V1.0
+
+一个用于以搜索的类。一个元素可以有多个类，只要有一个符合就能被匹配到。
+### 返回值
+```
+Array<Element(s)>
+```
+### 示例
+* 描述 - 查找所有类是“myClass”的元素。
+
+HTML代码
+```html
+<div class="notMe">div class="notMe"</div>
+<div class="myClass">div class="myClass"</div>
+<span class="myClass">span class="myClass"</span>
+```
+
+jQuery代码
+```jQuery
+$(".myClass")
+```
+
+结果
+```
+[<div class="myClass">div class="myClass"</div>,<span class="myClass">span class="myClass"</span>]
+```

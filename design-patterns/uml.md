@@ -3,48 +3,48 @@
 
 > Create Time : 2017年3月19日 Ref : http://www.uml.org.cn/oobject/201404035.asp
 
-![Collections UML](./uml-imgs/about.jpg)
+![about](./uml-imgs/about.jpg)
 
-![Collections UML](./uml-imgs/abstract-factory.jpg)
+![abstract-factory UML](./uml-imgs/abstract-factory.jpg)
 
-![Collections UML](./uml-imgs/adapter.jpg)
+![adapter UML](./uml-imgs/adapter.jpg)
 
-![Collections UML](./uml-imgs/bridge.jpg)
+![bridge UML](./uml-imgs/bridge.jpg)
 
-![Collections UML](./uml-imgs/builder.jpg)
+![builder UML](./uml-imgs/builder.jpg)
 
-![Collections UML](./uml-imgs/chain-of-responsibility.jpg)
+![chain-of-responsibility UML](./uml-imgs/chain-of-responsibility.jpg)
 
-![Collections UML](./uml-imgs/command.jpg)
+![command UML](./uml-imgs/command.jpg)
 
-![Collections UML](./uml-imgs/composite.jpg)
+![composite UML](./uml-imgs/composite.jpg)
 
-![Collections UML](./uml-imgs/decorator.jpg)
+![decorator UML](./uml-imgs/decorator.jpg)
 
-![Collections UML](./uml-imgs/facade.jpg)
+![facade UML](./uml-imgs/facade.jpg)
 
-![Collections UML](./uml-imgs/factory-method.jpg)
+![factory-method UML](./uml-imgs/factory-method.jpg)
 
-![Collections UML](./uml-imgs/flyweight.jpg)
+![flyweight UML](./uml-imgs/flyweight.jpg)
 
-![Collections UML](./uml-imgs/interpreter.jpg)
+![interpreter UML](./uml-imgs/interpreter.jpg)
 
-![Collections UML](./uml-imgs/iterator.jpg)
+![iterator UML](./uml-imgs/iterator.jpg)
 
-![Collections UML](./uml-imgs/mediator.jpg)
+![mediator UML](./uml-imgs/mediator.jpg)
 
-![Collections UML](./uml-imgs/memento.jpg)
+![memento UML](./uml-imgs/memento.jpg)
 
-![Collections UML](./uml-imgs/observer.jpg)
+![observer UML](./uml-imgs/observer.jpg)
 
-![Collections UML](./uml-imgs/prototype.jpg)
+![prototype UML](./uml-imgs/prototype.jpg)
 
-![Collections UML](./uml-imgs/singleton.jpg)
+![singleton UML](./uml-imgs/singleton.jpg)
 
-![Collections UML](./uml-imgs/state.jpg)
+![state UML](./uml-imgs/state.jpg)
 
-![Collections UML](./uml-imgs/strategy.jpg)
+![strategy UML](./uml-imgs/strategy.jpg)
 
-![Collections UML](./uml-imgs/template-method.jpg)
+![template-method UML](./uml-imgs/template-method.jpg)
 
-![Collections UML](./uml-imgs/visitor.jpg)
+![visitor UML](./uml-imgs/visitor.jpg)

@@ -122,3 +122,84 @@ $(".myClass")
 ```
 [<div class="myClass">div class="myClass"</div>,<span class="myClass">span class="myClass"</span>]
 ```
+
+---
+---
+
+## *
+
+### 概述
+
+匹配所有元素。多用于结合上下文来搜索。
+
+### 返回值
+
+```
+Array<Element(s)>
+```
+
+### 示例
+
+* 描述 - 找到每一个元素
+
+HTML代码
+```html
+<div>DIV</div>
+<span>SPAN</span>
+<p>P</p>
+```
+
+jQuery代码
+```jQuery
+$("*")
+```
+
+结果
+```
+[<div>DIV</div>,<span>SPAN</span>,<p>P</p>]
+```
+
+---
+---
+
+## selector1,selector2,selectorN
+
+### 概述
+
+将每一个选择器匹配到的元素一起返回。
+
+你可以制定任意多个选择器，并将匹配到的元素合并到一个结果内。
+
+### 参数
+
+selector1 Selector 一个有效的选择器
+selector2 Selector 另一个有效的选择器
+selectorN Selector 任意多个有效的选择器
+
+### 返回值
+
+```
+Array<Element(s)>
+```
+
+### 示例
+
+* 描述 - 找到匹配任意一个选择器的元素
+
+HTML代码
+```html
+<div>div</div>
+<p class="myClass">p class="myClass"</p>
+<span>span</span>
+<p lcass="notMyClass">p class="notMyClass"</p>
+```
+
+jQuery代码
+```jQuery
+$("div,span,p.myCass")
+```
+
+结果
+```
+[<div>div</div>,<p class="myClass">p class="myClass"</p>,<span>span</span>]
+```

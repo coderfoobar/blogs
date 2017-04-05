@@ -828,7 +828,7 @@ $(":root").css("background-color","yellow");
 
 选择由文档URI的格式化识别码表示的目标元素。
 
-如果文档的URI包含一个格式化的标识符，或hash（哈希），然后:target选择器将匹配ID和标识符相匹配的元素。如，给定的URI http://example.com#foo , $("p:target") ，将选择<p id="foo" >元素。
+如果文档的URI包含一个格式化的标识符，或hash（哈希），然后:target选择器将匹配ID和标识符相匹配的元素。如，给定的URI http://example.com#foo , $("p:target") ，将选择`<p id="foo" >`元素。
 
 这个不寻常的用法，可进一步讨论中找到W3C CSS specification.
 

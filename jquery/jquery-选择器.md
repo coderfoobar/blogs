@@ -26,7 +26,7 @@ HTML代码
 <div id="myDiv">id="myDiv"</div>
 ```
 jQuery 代码
-```jquery
+```JavaScript
 $("#myDiv")
 ```
 结果
@@ -44,7 +44,7 @@ HTML代码
 <span id="foo.bar"></span>
 ```
 jQuery 代码
-```jquery
+```JavaScript
 $("#foo\\[bar\\]");
 ```
 结果
@@ -78,7 +78,7 @@ HTML代码
 ```
 
 jQuery代码
-```jQuery
+```JavaScript
 $("div")
 ```
 
@@ -114,7 +114,7 @@ HTML代码
 ```
 
 jQuery代码
-```jQuery
+```JavaScript
 $(".myClass")
 ```
 
@@ -150,7 +150,7 @@ HTML代码
 ```
 
 jQuery代码
-```jQuery
+```JavaScript
 $("*")
 ```
 
@@ -195,7 +195,7 @@ HTML代码
 ```
 
 jQuery代码
-```jQuery
+```JavaScript
 $("div,span,p.myCass")
 ```
 
@@ -242,7 +242,7 @@ HTML代码
 ```
 
 jQuery代码
-```jQuery
+```JavaScript
 $("form input")
 ```
 
@@ -289,7 +289,7 @@ HTML代码
 ```
 
 jQuery代码
-```jQuery
+```JavaScript
 $("form > input")
 ```
 
@@ -336,7 +336,7 @@ HTML代码
 ```
 
 jQuery代码
-```jQuery
+```JavaScript
 $("label + input")
 ```
 
@@ -382,7 +382,7 @@ HTML代码
 ```
 
 jQuery代码
-```jQuery
+```JavaScript
 $("form ~ input")
 ```
 
@@ -425,7 +425,7 @@ HTML代码
 ```
 
 jQuery代码
-```jQuery
+```JavaScript
 $("li:first")
 ```
 
@@ -465,7 +465,7 @@ HTML代码
 ```
 
 jQuery代码
-```jQuery
+```JavaScript
 $("input:not(:checked)")
 ```
 
@@ -508,7 +508,7 @@ HTML代码
 ```
 
 jQuery代码
-```jQuery
+```JavaScript
 $("tr:even")
 ```
 
@@ -551,7 +551,7 @@ HTML代码
 ```
 
 jQuery代码
-```jQuery
+```JavaScript
 $("tr:odd")
 ```
 
@@ -592,7 +592,7 @@ HTML代码
 ```
 
 jQuery代码
-```jQuery
+```JavaScript
 $("tr:eq(1)")
 ```
 
@@ -633,7 +633,7 @@ HTML代码
 ```
 
 jQuery代码
-```jQuery
+```JavaScript
 $("tr:gt(0)")
 ```
 
@@ -672,7 +672,7 @@ jQuery
 * 描述 - 选择所有<p>的语言属性
 
 jQuery代码
-```jQuery
+```JavaScript
 $("p:(lang(it))")
 ```
 ---
@@ -703,7 +703,7 @@ HTML代码
 ```
 
 jQuery代码
-```jQuery
+```JavaScript
 $(":header").css("background","#EEE");
 ```
 
@@ -738,7 +738,7 @@ HTML代码
 ```
 
 jQuery代码
-```jQuery
+```JavaScript
 $("#run").click(function(){
     $("div:not(:animated)").animate({left:"+=20"},1000);
 });
@@ -786,7 +786,7 @@ HTML代码
 ```
 
 jQuery代码
-```jQuery
+```JavaScript
 $("#content").delegate("*","focus blur",function(event){
     var elem = $(this);
     setTimeout(function(){
@@ -816,7 +816,7 @@ jQuery
 * 描述 - 设置<html>背景颜色为黄色
 
 jQuery代码
-```jQuery
+```JavaScript
 $(":root").css("background-color","yellow");
 ```
 ---
@@ -836,4 +836,531 @@ $(":root").css("background-color","yellow");
 
 ```
 jQuery
+```
+---
+---
+
+## :contains(text) 
+
+### 概述
+
+包含给定文本的元素
+
+
+### 参数
+
+text String 一个用以查找的字符串
+
+### 返回值
+
+```
+Array<Element(s)>
+```
+
+### 示例
+
+* 描述 - 查找所有包含“John”的div元素
+
+HTML代码
+```html
+<div>John Resig</div>
+<div>Geoge Martin</div>
+<div>Malcom John Sinclair</div>
+<div>J. Ohn
+```
+
+jQuery代码
+```JavaScript
+$("div:contains('John')");
+```
+
+结果：
+```
+[<div>John Resig</div>,<div>Malcom John Sinclair</div>]
+```
+
+---
+---
+
+## :empty
+
+### 概述
+
+匹配所有不包含子元素或者文本的空元素
+
+### 返回值
+
+```
+Array<Element(s)>
+```
+
+### 示例
+
+* 描述 - 查找所有不包含子元素或者文本的空元素
+
+HTML代码
+```html
+<table>
+    <tr><td>Value 1</td><td></td></tr>
+    <tr><td>Value 2</td><td></td></tr>
+</table>
+```
+
+jQuery代码
+```JavaScript
+$("td:empty");
+```
+
+结果：
+```
+[<td></td>,<td></td>]
+```
+
+---
+---
+
+## :target
+
+### 概述
+
+选择由文档URI的格式化识别码表示的目标元素。
+
+如果文档的URI包含一个格式化的标识符，或hash（哈希），然后:target选择器将匹配ID和标识符相匹配的元素。如，给定的URI http://example.com#foo , $("p:target") ，将选择`<p id="foo" >`元素。
+
+这个不寻常的用法，可进一步讨论中找到W3C CSS specification.
+
+### 返回值
+
+```
+jQuery
+```
+---
+---
+
+## :has(selector) 
+
+### 概述
+
+匹配含有选择器所匹配的元素的元素
+
+
+### 参数
+
+selector Selector 一个用于筛选的选择器
+
+### 返回值
+
+```
+Array<Element(s)>
+```
+
+### 示例
+
+* 描述 - 给所有包含p元素的div元素添加一个text类
+
+HTML代码
+```html
+<div><p>Hello</p></div>
+<div>Hello again</div>
+```
+
+jQuery代码
+```JavaScript
+$("div:has(p)").addClass("test");
+```
+
+结果：
+```
+[<div class="test"><p>Hello</p></div>]
+```
+
+---
+---
+
+## :parent
+
+### 概述
+
+匹配含有子元素或者文本的元素
+
+### 返回值
+
+```
+Array<Element(s)>
+```
+
+### 示例
+
+* 描述 - 查找所有含有子元素或者文本的td元素
+
+HTML代码
+```html
+<table>
+    <tr><td>Value 1</td><td></td></tr>
+    <tr><td>Value 2</td><td></td></tr>
+</table>
+```
+
+jQuery代码
+```JavaScript
+$("td:parent");
+```
+
+结果：
+```
+[<td>Value 1</td>,<td>Value 2</td>]
+```
+
+
+---
+---
+
+## :hidden
+
+### 概述
+
+匹配所有不可见的元素，或者type为hidder的元素
+
+### 返回值
+
+```
+Array<Element(s)>
+```
+
+### 示例
+
+* 描述 - 查找隐藏的tr
+
+HTML代码
+```html
+<table>
+    <tr style="display:none"><td>Value 1</td></tr>
+    <tr><td>Value 2</td></tr>
+</table>
+```
+
+jQuery代码
+```JavaScript
+$("tr:hidden");
+```
+
+结果：
+```
+[<tr style="display:none"><td>Value 1</td></tr>]
+```
+
+* 描述 - 匹配type为hidden的元素
+
+HTML代码
+```html
+<form>
+    <input type="text" name="email" />
+    <input type="hidden" name="id" />
+</form>
+```
+
+jQuery代码
+```JavaScript
+$("input:hidden");
+```
+
+结果：
+```
+[<input type="hidden" name="id">]
+```
+
+
+---
+---
+
+## :visible
+
+### 概述
+
+匹配所有可见的元素
+
+### 返回值
+
+```
+Array<Element(s)>
+```
+
+### 示例
+
+* 描述 - 查找所有可见的tr元素
+
+HTML代码
+```html
+<table>
+    <tr style="display:none"><td>Value 1</td></tr>
+    <tr><td>Value 2</td></tr>
+</table>
+```
+
+jQuery代码
+```JavaScript
+$("tr:visible");
+```
+
+结果：
+```
+[<tr><td>Value 2</td></tr>]
+```
+
+---
+---
+
+## [attribute]
+
+### 概述
+
+匹配包含给定属性的元素。注意，在jQuery 1.3中，前导的@符号已经被废除！ 如果想要兼容最新版本，只需要简单的去掉@符号即可。
+
+### 参数
+
+attribute String 属性名
+
+
+### 返回值
+
+```
+Array<Element(s)>
+```
+
+### 示例
+
+* 描述 - 查找所有含有id属性的div元素
+
+HTML代码
+```html
+<div>
+    <p>Hello!</p>
+</div>
+<div id="test2" ></div>
+```
+
+jQuery代码
+```JavaScript
+$("div[id]")
+```
+
+结果：
+```
+[<div id="test2" ></div>]
+```
+
+---
+---
+
+## [attribute=value]
+
+### 概述
+
+匹配给定的属性是某个特定值的元素
+
+### 参数
+
+attribute String 属性名
+value     String 属性值。引导大多数情况下是可选的。但在遇到注入属性值包含"]"时，用以避免冲突。
+
+
+### 返回值
+
+```
+Array<Element(s)>
+```
+
+### 示例
+
+* 描述 - 查找所有name属性是newsletter的input元素
+
+HTML代码
+```html
+<input type="checkbox" name="newsletter" value="Hot Fuzz" />
+<input type+"checkbox" name="newsletter" value="Cold Fusion" />
+<input type="checkbox" name="accept" value = "Evil Plans" />
+```
+
+jQuery代码
+```JavaScript
+$("input[name='newsletter']").attr("checked",true);
+```
+
+结果：
+```
+[<input type="checkbox" name="newsletter" value="Hot Fuzz"  checked="true" />,
+<input type+"checkbox" name="newsletter" value="Cold Fusion"  checked="true" />]
+```
+
+
+---
+---
+
+## [attribute!=value]
+
+### 概述
+
+匹配所有不含有指定的属性，或者属性不等于特定值的元素。
+此选择器等价于`:not([attr=value])`。要匹配含有特定属性但不等于特定值的元素，请使用`[attr]:not([attr=value])`
+
+### 参数
+
+attribute String 属性名
+value     String 属性值。引导大多数情况下是可选的。但在遇到注入属性值包含"]"时，用以避免冲突。
+
+
+### 返回值
+
+```
+Array<Element(s)>
+```
+
+### 示例
+
+* 描述 - 查找所有name属性不是newsletter的input元素
+
+HTML代码
+```html
+<input type="checkbox" name="newsletter" value="Hot Fuzz" />
+<input type+"checkbox" name="newsletter" value="Cold Fusion" />
+<input type="checkbox" name="accept" value = "Evil Plans" />
+```
+
+jQuery代码
+```JavaScript
+$("input[name!='newsletter']").attr("checked",true);
+```
+
+结果：
+```
+[<input type="checkbox" name="accept" value = "Evil Plans" checked="true" />]
+```
+
+---
+---
+
+## [attribute^=value]
+
+### 概述
+
+匹配给定属性是以某些值开始的元素
+
+### 参数
+
+attribute String 属性名
+value     String 属性值。引导大多数情况下是可选的。但在遇到注入属性值包含"]"时，用以避免冲突。
+
+
+### 返回值
+
+```
+Array<Element(s)>
+```
+
+### 示例
+
+* 描述 - 查找所有name以‘news’开始的input元素
+
+HTML代码
+```html
+<input type="checkbox" name="newsletter" value="Hot Fuzz" />
+<input type+"checkbox" name="newsletter" value="Cold Fusion" />
+<input type="checkbox" name="accept" value = "Evil Plans" />
+```
+
+jQuery代码
+```JavaScript
+$("input[name^='news']").attr("checked",true);
+```
+
+结果：
+```
+[<input type="checkbox" name="newsletter" value="Hot Fuzz"  checked="true" />,
+<input type+"checkbox" name="newsletter" value="Cold Fusion"  checked="true" />]
+```
+
+
+---
+---
+
+## [attribute$=value]
+
+### 概述
+
+匹配给定属性是以某些值结尾的元素
+
+### 参数
+
+attribute String 属性名
+value     String 属性值。引导大多数情况下是可选的。但在遇到注入属性值包含"]"时，用以避免冲突。
+
+
+### 返回值
+
+```
+Array<Element(s)>
+```
+
+### 示例
+
+* 描述 - 查找所有name以‘letter’结尾的input元素
+
+HTML代码
+```html
+<input name="newsletter" />
+<input name="milkman" />
+<input name="jobletter" />
+```
+
+jQuery代码
+```JavaScript
+$("input[name$='letter']");
+```
+
+结果：
+```
+[<input name="newsletter" />,<input name="jobletter" />]
+```
+
+---
+---
+
+## [attribute*=value]
+
+### 概述
+
+匹配给定属性是包含给定值的元素
+
+### 参数
+
+attribute String 属性名
+value     String 属性值。引导大多数情况下是可选的。但在遇到注入属性值包含"]"时，用以避免冲突。
+
+
+### 返回值
+
+```
+Array<Element(s)>
+```
+
+### 示例
+
+* 描述 - 查找所有name包含‘man’的input元素
+
+HTML代码
+```html
+<input name="man-news" />
+<input name="milkman" />
+<input name="letterman2" />
+<input name="newmilk" />
+```
+
+jQuery代码
+```JavaScript
+$("input[name*='man']");
+```
+
+结果：
+```
+[<input name="man-news" />,<input name="milkman" />,<input name="letterman2" />]
 ```

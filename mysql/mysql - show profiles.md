@@ -3,7 +3,7 @@
 
 > Create Time : 2017年4月13日 Author : huduku.io
 
-show profiles 是 MySQL 5.0.37之后添加的。作用是`查看SQL性能指标`。
+> `show profiles` 是` MySQL 5.0.37`之后添加的。作用是`查看SQL性能指标`,`分析SQL性能瓶颈`。
 
 ## 查看数据库版本:
 

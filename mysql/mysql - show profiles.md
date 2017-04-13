@@ -161,3 +161,22 @@ mysql>  show profile block io,cpu for query 1;
 32 rows in set, 1 warning (0.02 sec)
 #---------------------------------------------------------------------------------------------------------
 ```
+
+## 语法规则
+
+```
+SHOW PROFILE [type [, type] … ]  
+    [FOR QUERY n]  
+    [LIMIT row_count [OFFSET offset]]  
+  
+type:  
+    ALL  
+  | BLOCK IO  
+  | CONTEXT SWITCHES  
+  | CPU  
+  | IPC  
+  | MEMORY  
+  | PAGE FAULTS  
+  | SOURCE  
+  | SWAPS  
+```

@@ -32,7 +32,7 @@ update tbl set field = field_tmp;
 4. 删除中间字段`field_tmp`:
 
 ```sql
-alter table tbl drop field_tmp;
+alter table tbl drop column field_tmp;
 ```
 
 ---

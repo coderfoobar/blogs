@@ -196,7 +196,7 @@ cc , bc jar
 * 定义： 基于64个字符的编码算法
 * 关于RFC 2045 Base64算法规范
 * 衍生： Base16 Base32 Url Base64
-
+* Base64算法与加解密算法
 
 
 

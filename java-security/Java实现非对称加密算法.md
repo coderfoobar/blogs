@@ -216,6 +216,51 @@ public class ImoocRSA {
 ```
 
 
+## 非对称加密算法 -- ElGamal
+
+* 公钥加密算法
+* 实现方 : Bouncy Castle (JDK未提供相应的实现)
+
+
+| 密钥长度 | 默认 | 工作模式 | 填充方式 | 实现方 |
+| ------- | ---- | ------- | -------- | ------ |
+| 160~16384 (8的整数倍) | 1024 | ECB, NONE | NoPadding,PKCS1Padding,OAEPWITMD5AndMGF1Padding,OAEPWITSHA1AndMGF1Padding,OAEPWITSHA224AndMGF1Padding,OAEPWITSHA256AndMGF1Padding,OAEPWITSHA384AndMGF1Padding,OAEPWITSHA512AndMGF1Padding,ISO9769-1Padding | BC |
+
+
+### 源码
+
+```Java
+public class ImoocElGamal {
+    public static void main(String[] args) {
+
+    }
+
+    public static void bcElgamal(){
+        //公钥加密 ， 私钥解密
+        Security.addProvider(new BouncyCastleProvider());
+
+        //1. 初始化密钥
+        AlgorithmParameterGenerator algorithmParameterGenerator = 
+            AlgorithmParameterGenerator.getInstance("ElGamal");
+        algorithmParameterGenerator.init(256);
+        AlgorithmParameters algorithmParameters = algorithmParameterGenerator.generateParameters();
+        DHParameterSpec dhParameterSpec = 
+            (DHParameterSpec)algorithmParameters.getParameterSpec(DHParameterSpec.class);
+        KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance("ElGamal");
+        keyPairGenerator.initialize(dhParameterSpec,new SecureRandomn());
+        KeyPair keyPair = keyPairGenerator.generateKeyPair();
+        PublicKey elGamalPublicKey = keyPair.getPublic();
+        PrivateKey elGamalPrivateKey = keyPair.getPrivate();
+        System.out.println("Public key : " + Base64.encodeBase64String(elGamalPublicKey.getEncoded()));
+        System.out.println("Private key : " + Base64.encodeBase64String(elGamalPrivateKey.getEncoded()));
+
+        
+
+    }
+}
+```
+
+
 
 
 

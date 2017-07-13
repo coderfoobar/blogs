@@ -118,6 +118,7 @@ key定义的注意点：
 ```
 set company tencent
 get company
+exists company
 getset company baidu
 del company
 incr num (不存在，num=0并加1 ，num=1，如果存在，并能转为数字，则增加1，否则转换失败)

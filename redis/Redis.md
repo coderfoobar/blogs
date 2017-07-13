@@ -124,6 +124,8 @@ del company
 incr num (不存在，num=0并加1 ，num=1，如果存在，并能转为数字，则增加1，否则转换失败)
 decr num
 
+mset name jack age 18
+
 incrby num2 3 (没有则默认为0，之后加3，num2=3)
 decrby num3 5 (没有默认为0，并减5 num3=-5)
 
@@ -161,6 +163,8 @@ hget myhash2 username
 hget myhash age
 hincrby myhash age 5
 hget myhash age
+
+hmget myhash username  age
 
 hexists myhash username
 hexists myhash password
@@ -411,6 +415,9 @@ type mylist # list
 type myset # set
 type myhash # hash
 type mysort # zset
+
+flushdb 清空当前库
+flushall 清空所有
 ```
 
 ## Redis的特性

@@ -364,7 +364,7 @@ zremrangebyrank mysort 0 4 #
 
 zadd mysort 80 zs 90 ls 100 ww
 zremrangebyrank mysort 80 100 
-zrange mysort mysort 0 -1 
+zrange mysort 0 -1 
 
 
 zadd mysort 70 zs 80 ls 90 ww

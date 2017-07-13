@@ -247,6 +247,8 @@ lrange mylist3 0 -1
 lrange mylist 0 -1
 h 2 1 c b a
 
+ltrim mylist 1 3 # 保留位置1~3的元素
+
 lset mylist 3 mmm
 lrange mylist 0 -1
 t 2 1 mmm b a
@@ -433,6 +435,15 @@ select 1 # 选择1号数据库
 select 0 # 选择默认的0号数据库
 
 move myset 1 # 将myset移动到1号数据库
+```
+
+```
+info  # 获取服务器信息
+info keyspace # 获取特定信息
+dbsize
+quit # 退出客户端
+exit # 退出客户端
+shutdown # 关闭服务器
 ```
 
 ### 事务

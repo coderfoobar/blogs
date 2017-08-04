@@ -37,8 +37,8 @@
 
 物理上不连续的内存空间（逻辑上连续）。
 
-* 新生代 - Eden
-* 老年代 - From Survivor ， To Survivor
+* 新生代 - Eden ，From Survivor ， To Survivor
+* 老年代
 * 永久代 - Perm Gen
 * TLAB - 线程私有的分配缓冲区 （线程私有）
 

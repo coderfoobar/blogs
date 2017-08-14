@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html language="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Vue.js的模板中可以使用简单的js表达式</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+   <p id="demo" v-show="seen">
+       如意娘 <br />
+       武则天 <br />
+       看朱成碧思纷纷，<br />
+       憔悴支离为忆君。<br />
+       不信比来长下泪，<br />
+       开箱验取石榴裙。<br />
+
+   </p>
+</body>
+
+<script>
+    var app = new Vue({
+        el:'#demo', //vue管理的边界
+        data:{
+            seen:true, /* 如果seen为true，那么就显示文字，否则就隐藏文字 */
+        }
+    });
+</script>
+
+</html>

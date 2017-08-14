@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html language="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Vue.js控制元素属性</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+
+    <div id="demo">
+        <a v-bind:href="hrefValue">
+            <img v-bind:src="source" alt="" />
+        </a>
+    </div>
+   <!-- 用v-bind绑定标签属性，后面是参数（标签属性名） -->
+</body>
+
+<script>
+    var app = new Vue({
+        el:'#demo', //vue管理的边界
+        data:{
+            hrefValue : 'http://www.itbull.cn' ,
+            source : 'images/01.png'
+        }
+    });
+</script>
+
+</html>

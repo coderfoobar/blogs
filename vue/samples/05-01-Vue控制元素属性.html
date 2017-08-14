@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html language="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Vue.js的模板中可以使用简单的js表达式</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+
+    <div id="demo">
+        <img v-bind:src="'images/0'+num+'.png'" alt="" />
+        <p>{{num==1?'test1':'test3'}}</p>
+    </div>
+   <!-- 用v-bind绑定标签属性，后面是参数（标签属性名） -->
+</body>
+
+<script>
+    var app = new Vue({
+        el:'#demo', //vue管理的边界
+        data:{
+            num:3
+        }
+    });
+</script>
+
+</html>

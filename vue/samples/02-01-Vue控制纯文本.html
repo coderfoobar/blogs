@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html language="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Vue.js控制纯文本</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+    <div id="demo1"> 今年是{{year}}年{{month}}月{{day}}日</div>
+    <div id="demo2" v-text="'今年是' + year +'年'+ month +'月' + day +'日'"> </div>
+</body>
+
+<script>
+    var app = new Vue({
+        el:'#demo2', //vue管理的边界
+        data:{
+            year : new Date().getFullYear(),
+            month : new Date().getMonth()+1,
+            day : new Date().getDate()
+        }
+    });
+</script>
+
+</html>

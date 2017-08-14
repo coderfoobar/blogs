@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html language="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Vue.js入门</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+    <h1 id="demo">{{name}},欢迎您来到泰牛程序员!</h1>
+</body>
+
+<script>
+    var app = new Vue({
+        el:'#demo', //el表示声明Vue.js管理的边界
+        data:{
+            name:'Andy'
+        } //data核心作用是存放显示在页面中的数据,需要是一个对象
+    });
+</script>
+
+</html>

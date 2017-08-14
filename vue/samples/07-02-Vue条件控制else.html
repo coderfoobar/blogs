@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html language="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Vue.js条件控制</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+   <div id="demo">
+       <template v-if="login">Vinko,欢迎来到泰牛程序员</template>
+        <template v-else>登录 注册</template>
+   </div>
+</body>
+
+<script>
+    var app = new Vue({
+        el:'#demo', 
+        data:{
+            login : false /* 如果用户已经登录，那么login为true，否则，login为false */
+        }
+    });
+</script>
+
+</html>
+ 

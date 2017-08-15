@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html language="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Vue.js 图书管理</title>
+    <script src="vue.js"></script>
+
+    <style>
+        * {
+            margin: 0px;
+            padding : 0px;
+        }
+
+        table {
+            width: 1090px;
+            margin: 20px auto;
+        }
+        table , td {
+            border: 1px solid #cccccc;
+            border-collapse: collapse;
+            text-align: center;
+        }
+
+        tr {
+            line-height: 30px;
+        }
+
+        button {
+            width: 40px;
+            height: 24px;
+            border: 1px solid greenyellow;
+        }
+       
+       fieldset {
+           width: 1000px;
+           margin: 0 auto;
+           padding: 25px;
+       }
+
+       fieldset p {
+           line-height: 30px;
+       }
+    </style>
+</head>
+<body>
+    <div id="demo">
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>书名</th>
+                <th>作者</th>
+                <th>价格</th>
+                <th>操作</th>
+            </tr>
+            <tr v-for="(book,index) in books"> 
+                <td>{{book.id}}</td>
+                <td>{{book.name}}</td>
+                <td>{{book.author}}</td>
+                <td>{{book.price}}</td>
+                <td>
+                    <button @click="del(index)">删除</button>
+                </td>
+            </tr>
+        </table>
+
+        <fieldset>
+            <legend>添加新书</legend>
+            <p>书名 <input type="text" v-model="newbook.name" /></p>
+            <p>作者 <input type="text" v-model="newbook.author"  /></p>
+            <p>价格 <input type="text" v-model="newbook.price"  /></p>
+            <p>
+                <button @click="add()">添加</button>
+            </p>
+        </fieldset>
+    </div>
+</body>
+
+<script>
+    var app = new Vue({
+        el:'#demo', 
+        data:{
+            books : [
+                {id:1,name:'红楼梦',author:'曹雪芹',price:'8.88'},
+                {id:1,name:'西游记',author:'吴承恩',price:'8.80'},
+                {id:1,name:'水浒传',author:'施耐庵',price:'8.08'},
+                {id:1,name:'三国演义',author:'罗贯中',price:'8.00'}
+            ],
+            newbook : {
+                id : 0,
+                name : '',
+                author : '',
+                price : ''
+            }
+
+        },
+        methods : {
+            del : function(idx) {
+                this.books.splice(idx,1);
+            },
+            add : function () {
+                var maxId = 0;
+                for (var i = 0; i < this.books; i++) {
+                    if (maxId < this.books[i].id ) {
+                        maxId = this.books[i].id;
+                    }
+                }
+                this.newbook.id = maxId + 1;
+                console.log(this.newbook);
+                this.books.push(this.newbook);
+                this.newbook = {};
+            }
+        }
+    });
+</script>
+
+</html>
+ 

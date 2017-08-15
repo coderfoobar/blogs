@@ -10,14 +10,17 @@ explain <sql语句>
  
 二.explain输出解释
  
+```
 +----+-------------+-------+-------+-------------------+---------+---------+-------+------+-------+
 | id | select_type | table | type  | possible_keys     | key     | key_len | ref   | rows | Extra |
 +----+-------------+-------+-------+-------------------+---------+---------+-------+------+-------+
- 
+```
+
 1.id
   我的理解是SQL执行的顺利的标识,SQL从大到小的执行.
  
 例如:
+```sql
 mysql> explain select * from (select * from ( select * from t3 where id=3952602) a) b;
 +----+-------------+------------+--------+-------------------+---------+---------+------+------+-------+
 | id | select_type | table      | type   | possible_keys     | key     | key_len | ref  | rows | Extra |
@@ -26,7 +29,7 @@ mysql> explain select * from (select * from ( select * from t3 where id=3952602)
 |  2 | DERIVED     | <derived3> | system | NULL              | NULL    | NULL    | NULL |    1 |       |
 |  3 | DERIVED     | t3         | const  | PRIMARY,idx_t3_id | PRIMARY | 4       |      |    1 |       |
 +----+-------------+------------+--------+-------------------+---------+---------+------+------+-------+
- 
+```
 很显然这条SQL是从里向外的执行,就是从id=3 向上执行.
  
 2. select_type
@@ -35,17 +38,20 @@ mysql> explain select * from (select * from ( select * from t3 where id=3952602)
  
 (1) SIMPLE
 简单SELECT(不使用UNION或子查询等) 例如:
+```sql
 mysql> explain select * from t3 where id=3952602;
 +----+-------------+-------+-------+-------------------+---------+---------+-------+------+-------+
 | id | select_type | table | type  | possible_keys     | key     | key_len | ref   | rows | Extra |
 +----+-------------+-------+-------+-------------------+---------+---------+-------+------+-------+
 |  1 | SIMPLE      | t3    | const | PRIMARY,idx_t3_id | PRIMARY | 4       | const |    1 |       |
 +----+-------------+-------+-------+-------------------+---------+---------+-------+------+-------+
- 
+```
+
 (2). PRIMARY
  
 我的理解是最外层的select.例如:
- 
+
+```sql
 mysql> explain select * from (select * from t3 where id=3952602) a ;
 +----+-------------+------------+--------+-------------------+---------+---------+------+------+-------+
 | id | select_type | table      | type   | possible_keys     | key     | key_len | ref  | rows | Extra |
@@ -53,10 +59,13 @@ mysql> explain select * from (select * from t3 where id=3952602) a ;
 |  1 | PRIMARY     | <derived2> | system | NULL              | NULL    | NULL    | NULL |    1 |       |
 |  2 | DERIVED     | t3         | const  | PRIMARY,idx_t3_id | PRIMARY | 4       |      |    1 |       |
 +----+-------------+------------+--------+-------------------+---------+---------+------+------+-------+
- 
+```
+
 (3).UNION
  
 UNION中的第二个或后面的SELECT语句.例如
+
+```sql
 mysql> explain select * from t3 where id=3952602 union all select * from t3 ;
 +----+--------------+------------+-------+-------------------+---------+---------+-------+------+-------+
 | id | select_type  | table      | type  | possible_keys     | key     | key_len | ref   | rows | Extra |
@@ -65,11 +74,13 @@ mysql> explain select * from t3 where id=3952602 union all select * from t3 ;
 |  2 | UNION        | t3         | ALL   | NULL              | NULL    | NULL    | NULL  | 1000 |       |
 |NULL | UNION RESULT | <union1,2> | ALL   | NULL              | NULL    | NULL    | NULL  | NULL |       |
 +----+--------------+------------+-------+-------------------+---------+---------+-------+------+-------+
- 
+```
+
 (4).DEPENDENT UNION
  
 UNION中的第二个或后面的SELECT语句，取决于外面的查询
- 
+
+```sql
 mysql> explain select * from t3 where id in (select id from t3 where id=3952602 union all select id from t3)  ;
 +----+--------------------+------------+--------+-------------------+---------+---------+-------+------+--------------------------+
 | id | select_type        | table      | type   | possible_keys     | key     | key_len | ref   | rows | Extra                    |
@@ -79,11 +90,13 @@ mysql> explain select * from t3 where id in (select id from t3 where id=3952602 
 |  3 | DEPENDENT UNION    | t3         | eq_ref | PRIMARY,idx_t3_id | PRIMARY | 4       | func  |    1 | Using where; Using index |
 |NULL | UNION RESULT       | <union2,3> | ALL    | NULL              | NULL    | NULL    | NULL  | NULL |                          |
 +----+--------------------+------------+--------+-------------------+---------+---------+-------+------+--------------------------+
- 
+```
+
 (4).UNION RESULT
  
 UNION的结果。
  
+```sql
 mysql> explain select * from t3 where id=3952602 union all select * from t3 ;
 +----+--------------+------------+-------+-------------------+---------+---------+-------+------+-------+
 | id | select_type  | table      | type  | possible_keys     | key     | key_len | ref   | rows | Extra |
@@ -92,11 +105,13 @@ mysql> explain select * from t3 where id=3952602 union all select * from t3 ;
 |  2 | UNION        | t3         | ALL   | NULL              | NULL    | NULL    | NULL  | 1000 |       |
 |NULL | UNION RESULT | <union1,2> | ALL   | NULL              | NULL    | NULL    | NULL  | NULL |       |
 +----+--------------+------------+-------+-------------------+---------+---------+-------+------+-------+
- 
+```
+
 (5).SUBQUERY
  
 子查询中的第一个SELECT.
  
+```sql
 mysql> explain select * from t3 where id = (select id from t3 where id=3952602 )  ;
 +----+-------------+-------+-------+-------------------+---------+---------+-------+------+-------------+
 | id | select_type | table | type  | possible_keys     | key     | key_len | ref   | rows | Extra       |
@@ -104,11 +119,13 @@ mysql> explain select * from t3 where id = (select id from t3 where id=3952602 )
 |  1 | PRIMARY     | t3    | const | PRIMARY,idx_t3_id | PRIMARY | 4       | const |    1 |             |
 |  2 | SUBQUERY    | t3    | const | PRIMARY,idx_t3_id | PRIMARY | 4       |       |    1 | Using index |
 +----+-------------+-------+-------+-------------------+---------+---------+-------+------+-------------+
- 
+```
+
 (6).  DEPENDENT SUBQUERY
  
 子查询中的第一个SELECT，取决于外面的查询
- 
+
+```sql
 mysql> explain select id from t3 where id in (select id from t3 where id=3952602 )  ;
 +----+--------------------+-------+-------+-------------------+---------+---------+-------+------+--------------------------+
 | id | select_type        | table | type  | possible_keys     | key     | key_len | ref   | rows | Extra                    |
@@ -116,12 +133,12 @@ mysql> explain select id from t3 where id in (select id from t3 where id=3952602
 |  1 | PRIMARY            | t3    | index | NULL              | PRIMARY | 4       | NULL  | 1000 | Using where; Using index |
 |  2 | DEPENDENT SUBQUERY | t3    | const | PRIMARY,idx_t3_id | PRIMARY | 4       | const |    1 | Using index              |
 +----+--------------------+-------+-------+-------------------+---------+---------+-------+------+--------------------------+
- 
+```
  
 (7).DERIVED
  
 派生表的SELECT(FROM子句的子查询)
- 
+```sql
 mysql> explain select * from (select * from t3 where id=3952602) a ;
 +----+-------------+------------+--------+-------------------+---------+---------+------+------+-------+
 | id | select_type | table      | type   | possible_keys     | key     | key_len | ref  | rows | Extra |
@@ -129,13 +146,13 @@ mysql> explain select * from (select * from t3 where id=3952602) a ;
 |  1 | PRIMARY     | <derived2> | system | NULL              | NULL    | NULL    | NULL |    1 |       |
 |  2 | DERIVED     | t3         | const  | PRIMARY,idx_t3_id | PRIMARY | 4       |      |    1 |       |
 +----+-------------+------------+--------+-------------------+---------+---------+------+------+-------+
- 
+```
  
 3.table
  
 显示这一行的数据是关于哪张表的.
 有时不是真实的表名字,看到的是derivedx(x是个数字,我的理解是第几步执行的结果)
- 
+```sql
 mysql> explain select * from (select * from ( select * from t3 where id=3952602) a) b;
 +----+-------------+------------+--------+-------------------+---------+---------+------+------+-------+
 | id | select_type | table      | type   | possible_keys     | key     | key_len | ref  | rows | Extra |
@@ -144,7 +161,7 @@ mysql> explain select * from (select * from ( select * from t3 where id=3952602)
 |  2 | DERIVED     | <derived3> | system | NULL              | NULL    | NULL    | NULL |    1 |       |
 |  3 | DERIVED     | t3         | const  | PRIMARY,idx_t3_id | PRIMARY | 4       |      |    1 |       |
 +----+-------------+------------+--------+-------------------+---------+---------+------+------+-------+
- 
+```
 4.type
  
 这列很重要,显示了连接使用了哪种类别,有无使用索引.
@@ -153,7 +170,8 @@ mysql> explain select * from (select * from ( select * from t3 where id=3952602)
 (1).system
  
 这是const联接类型的一个特例。表仅有一行满足条件.如下(t3表上的id是primary key)
- 
+
+```sql
 mysql> explain select * from (select * from t3 where id=3952602) a ;
 +----+-------------+------------+--------+-------------------+---------+---------+------+------+-------+
 | id | select_type | table      | type   | possible_keys     | key     | key_len | ref  | rows | Extra |
@@ -161,23 +179,28 @@ mysql> explain select * from (select * from t3 where id=3952602) a ;
 |  1 | PRIMARY     | <derived2> | system | NULL              | NULL    | NULL    | NULL |    1 |       |
 |  2 | DERIVED     | t3         | const  | PRIMARY,idx_t3_id | PRIMARY | 4       |      |    1 |       |
 +----+-------------+------------+--------+-------------------+---------+---------+------+------+-------+
- 
+```
+
 (2).const
  
 表最多有一个匹配行，它将在查询开始时被读取。因为仅有一行，在这行的列值可被优化器剩余部分认为是常数。const表很快，因为它们只读取一次！
  
 const用于用常数值比较PRIMARY KEY或UNIQUE索引的所有部分时。在下面的查询中，tbl_name可以用于const表：
+
+```sql
 SELECT * from tbl_name WHERE primary_key=1；
 SELECT * from tbl_name WHERE primary_key_part1=1和primary_key_part2=2；
- 
+```
+
 例如:
+```sql
 mysql> explain select * from t3 where id=3952602;
 +----+-------------+-------+-------+-------------------+---------+---------+-------+------+-------+
 | id | select_type | table | type  | possible_keys     | key     | key_len | ref   | rows | Extra |
 +----+-------------+-------+-------+-------------------+---------+---------+-------+------+-------+
 |  1 | SIMPLE      | t3    | const | PRIMARY,idx_t3_id | PRIMARY | 4       | const |    1 |       |
 +----+-------------+-------+-------+-------------------+---------+---------+-------+------+-------+
- 
+```
  
 (3). eq_ref
  
@@ -186,15 +209,19 @@ mysql> explain select * from t3 where id=3952602;
 eq_ref可以用于使用= 操作符比较的带索引的列。比较值可以为常量或一个使用在该表前面所读取的表的列的表达式。
  
 在下面的例子中，MySQL可以使用eq_ref联接来处理ref_tables：
- 
+
+```sql
 SELECT * FROM ref_table,other_table
   WHERE ref_table.key_column=other_table.column;
  
 SELECT * FROM ref_table,other_table
   WHERE ref_table.key_column_part1=other_table.column
     AND ref_table.key_column_part2=1;
- 
+```
+
 例如
+
+```sql
 mysql> create unique index  idx_t3_id on t3(id) ;
 Query OK, 1000 rows affected (0.03 sec)
 Records: 1000  Duplicates: 0  Warnings: 0
@@ -206,7 +233,7 @@ mysql> explain select * from t3,t4 where t3.id=t4.accountid;
 |  1 | SIMPLE      | t4    | ALL    | NULL              | NULL      | NULL    | NULL                 | 1000 |       |
 |  1 | SIMPLE      | t3    | eq_ref | PRIMARY,idx_t3_id | idx_t3_id | 4       | dbatest.t4.accountid |    1 |       |
 +----+-------------+-------+--------+-------------------+-----------+---------+----------------------+------+-------+
- 
+```
 (4).ref
  
 对于每个来自于前面的表的行组合，所有有匹配索引值的行将从这张表中读取。如果联接只使用键的最左边的前缀，或如果键不是UNIQUE或PRIMARY KEY（换句话说，如果联接不能基于关键字选择单个行的话），则使用ref。如果使用的键仅仅匹配少量行，该联接类型是不错的。
@@ -214,7 +241,8 @@ mysql> explain select * from t3,t4 where t3.id=t4.accountid;
 ref可以用于使用=或<=>操作符的带索引的列。
  
 在下面的例子中，MySQL可以使用ref联接来处理ref_tables：
- 
+
+```sql
 SELECT * FROM ref_table WHERE key_column=expr;
  
 SELECT * FROM ref_table,other_table
@@ -223,9 +251,11 @@ SELECT * FROM ref_table,other_table
 SELECT * FROM ref_table,other_table
   WHERE ref_table.key_column_part1=other_table.column
     AND ref_table.key_column_part2=1;
- 
+```
+
 例如:
- 
+
+```sql
 mysql> drop index idx_t3_id on t3;
 Query OK, 1000 rows affected (0.03 sec)
 Records: 1000  Duplicates: 0  Warnings: 0
@@ -242,21 +272,26 @@ mysql> explain select * from t3,t4 where t3.id=t4.accountid;
 |  1 | SIMPLE      | t3    | ref  | PRIMARY,idx_t3_id | idx_t3_id | 4       | dbatest.t4.accountid |    1 |       |
 +----+-------------+-------+------+-------------------+-----------+---------+----------------------+------+-------+
 2 rows in set (0.00 sec)
- 
+```
+
 (5).  ref_or_null
  
 该联接类型如同ref，但是添加了MySQL可以专门搜索包含NULL值的行。在解决子查询中经常使用该联接类型的优化。
  
 在下面的例子中，MySQL可以使用ref_or_null联接来处理ref_tables：
  
+```sql
 SELECT * FROM ref_table
 WHERE key_column=expr OR key_column IS NULL;
- 
+```
+
 (6). index_merge
  
 该联接类型表示使用了索引合并优化方法。在这种情况下，key列包含了使用的索引的清单，key_len包含了使用的索引的最长的关键元素。
  
 例如:
+
+```sql
 mysql> explain select * from t4 where id=3952602 or accountid=31754306 ;
 +----+-------------+-------+-------------+----------------------------+----------------------------+---------+------+------+------------------------------------------------------+
 | id | select_type | table | type        | possible_keys              | key                        | key_len | ref  | rows | Extra                                                |
@@ -264,26 +299,34 @@ mysql> explain select * from t4 where id=3952602 or accountid=31754306 ;
 |  1 | SIMPLE      | t4    | index_merge | idx_t4_id,idx_t4_accountid | idx_t4_id,idx_t4_accountid | 4,4     | NULL |    2 | Using union(idx_t4_id,idx_t4_accountid); Using where |
 +----+-------------+-------+-------------+----------------------------+----------------------------+---------+------+------+------------------------------------------------------+
 1 row in set (0.00 sec)
- 
+```
+
 (7). unique_subquery
  
 该类型替换了下面形式的IN子查询的ref：
  
+```sql
 value IN (SELECT primary_key FROM single_table WHERE some_expr)
+```
+
 unique_subquery是一个索引查找函数，可以完全替换子查询，效率更高。
- 
+
+
 (8).index_subquery
  
 该联接类型类似于unique_subquery。可以替换IN子查询，但只适合下列形式的子查询中的非唯一索引：
- 
+
+```sql 
 value IN (SELECT key_column FROM single_table WHERE some_expr)
- 
+```
+
 (9).range
  
 只检索给定范围的行，使用一个索引来选择行。key列显示使用了哪个索引。key_len包含所使用索引的最长关键元素。在该类型中ref列为NULL。
  
 当使用=、<>、>、>=、<、<=、IS NULL、<=>、BETWEEN或者IN操作符，用常量比较关键字列时，可以使用range
- 
+
+```sql
 mysql> explain select * from t3 where id=3952602 or id=3952603 ;
 +----+-------------+-------+-------+-------------------+-----------+---------+------+------+-------------+
 | id | select_type | table | type  | possible_keys     | key       | key_len | ref  | rows | Extra       |
@@ -291,7 +334,8 @@ mysql> explain select * from t3 where id=3952602 or id=3952603 ;
 |  1 | SIMPLE      | t3    | range | PRIMARY,idx_t3_id | idx_t3_id | 4       | NULL |    2 | Using where |
 +----+-------------+-------+-------+-------------------+-----------+---------+------+------+-------------+
 1 row in set (0.02 sec)
- 
+```
+
 (10).index
  
 该联接类型与ALL相同，除了只有索引树被扫描。这通常比ALL快，因为索引文件通常比数据文件小。

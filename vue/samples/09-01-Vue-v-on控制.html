@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html language="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Vue.js v-on控制</title>
+    <script src="vue.js"></script>
+
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        ul {
+            width : 200px;
+            border : 1px solid #000;
+            margin : 100px auto;
+            list-style-type: none;
+        }
+
+        ul li {
+            line-height: 30px;
+            text-align: center;
+            border : 1px solid #000;
+            background-color: #ccc;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    
+   <ul id="demo">
+       <li v-on:click="clickMe">单击事件</li>
+       <li v-on:dblclick="doubleClickMe">双击事件</li>
+       <li @mouseenter="endterMe()">鼠标移入事件</li>
+       <li v-on:mouseleave="leaveMe('鼠标离开了')">鼠标移出事件</li>
+   </ul>
+</body>
+
+<script>
+    var app = new Vue({
+        el:'#demo', 
+        data:{},
+        methods : {
+            clickMe : function(){
+                console.log("单机事件发生了");
+            },
+            doubleClickMe : function() {
+                console.log("双击事件发生了");
+            },
+            endterMe : function() {
+                console.log("鼠标移入事件发生了");
+            },
+            leaveMe : function (param) {
+                console.log(param);
+            }
+        }
+    });
+</script>
+
+</html>
+ 

@@ -107,3 +107,21 @@ v-if与v-show的区别：
 
 v-else必须紧跟v-if之后，否则，不能被识别。表示，当v-if条件不成立的时候执行。
 
+## 3.7 v-for
+
+作用：控制html元素中的循环，实现数据列表的生成。
+
+用法： 
+* view:  v-for="item in 集合" , item是集合的子项。集合通常为数组。
+* v-for="(item,index) in singers" , index为索引值
+用途：写在哪个元素上，哪个元素循环。
+
+
+
+
+
+
+
+
+
+

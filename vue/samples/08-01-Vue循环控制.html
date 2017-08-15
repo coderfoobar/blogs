@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html language="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Vue.js循环控制</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+    最受欢迎港台歌手排行榜：
+   <ul id="demo">
+       <li v-for="(singer,index) in singers">排名:{{singer.num}} , 姓名:{{singer.name}} , 索引： {{index}}</li>
+   </ul>
+</body>
+
+<script>
+    var app = new Vue({
+        el:'#demo', 
+        data:{
+            singers:[ 
+                {num:1,name:'王菲'},
+                {num:2,name:'谢霆锋'},
+                {num:3,name:'张柏芝'},
+                {num:4,name:'阿娇'}              
+            ]
+        }
+    });
+</script>
+
+</html>
+ 

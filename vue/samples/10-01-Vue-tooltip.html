@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html language="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Vue.js 鼠标移上提醒功能</title>
+    <script src="vue.js"></script>
+
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        fieldset {
+            width: 230px;
+            padding: 30px;
+            margin: 100px auto;
+        }
+
+        fieldset p {
+            line-height: 40px;
+        }
+
+        fieldset label {
+            font-size: 12px;
+            color:#888;
+            vertical-align: 3px;
+        }
+
+        fieldset button {
+            padding-left: 5px;
+            padding-right: 5px;
+        }
+
+        fieldset span {
+            width: 190px;
+            padding: 5px;
+            position: absolute;
+            left: 0px;
+            top:28px;
+            border: 1px solid #DFB86D;
+            background-color: #fffde4;
+            font-size: 12px;
+            line-height: 20px;
+            color: #dc9632;
+        }
+        #demo {
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <fieldset>
+        <form action=""> 
+            <p> 邮箱: <input type="text" /></p>
+            <p> 密码: <input type="password" name="" id=""/></p>
+            <p id="demo" v-on:mouseenter="enterMe" v-on:mouseleave="leaveMe">  
+                <input type="checkbox" id="freelogin" /> 
+                <label for="freelogin" >十天免登录 </label>
+                <span v-show="seen">为了您的安全，请不要在网吧使用此功能!</span>
+            </p>
+            <p>
+                <button>登录</button>
+                <button>注册</button>
+            </p>
+        </form>
+    </fieldset>
+</body>
+
+<script>
+    var app = new Vue({
+        el:'#demo', 
+        data:{
+            seen:false
+        },
+        methods : {
+            enterMe : function () {
+                this.seen = true;
+            },
+            leaveMe : function () {
+                app.seen = false;
+            }
+        }
+    });
+</script>
+
+</html>
+ 

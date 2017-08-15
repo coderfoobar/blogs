@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html language="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Vue.js 双向数据绑定</title>
+    <script src="vue.js"></script>
+
+    <style>
+  
+    </style>
+</head>
+<body>
+    <div id="demo">
+        <input type="text" placeholder="请输入内容" v-model="txt" />
+        <br /><br />
+        {{txt}}
+    </div>
+</body>
+
+<script>
+    var app = new Vue({
+        el:'#demo', 
+        data:{
+            txt:'111'
+        }
+    });
+</script>
+
+</html>
+ 

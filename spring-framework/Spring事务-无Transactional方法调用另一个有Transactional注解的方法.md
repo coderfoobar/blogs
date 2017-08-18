@@ -49,6 +49,6 @@ public class Foo {
 
 > 参考文档
 
-* ![Spring AOP 深入剖析](./Spring-AOP-深入剖析.md)
+* [Spring AOP 深入剖析](./Spring-AOP-深入剖析.md)
 
 

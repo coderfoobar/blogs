@@ -1,9 +1,7 @@
 # blogs
 My blogs and notes ! Devopers !
 
-笔耕不辍，随时随地记知识。
-
-悟
+让优秀成为一种习惯！
 
 说明 ：
 

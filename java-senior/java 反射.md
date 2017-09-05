@@ -21,7 +21,7 @@
 
 Interface接口
 
-```
+```Java
 package com.app;
 public class Interface {
     void read();
@@ -30,7 +30,7 @@ public class Interface {
 
 Person类:
 
-```
+```Java
 package com.app;
 
 public class Person implents Interface {
@@ -92,7 +92,7 @@ public class Person implents Interface {
 
 ### 获取Class （3种方法）
 
-```
+```Java
 package com.app;
 public class T1 {
     public static void main(String[] args) {
@@ -123,7 +123,7 @@ public class T1 {
 
 ### 获取所有方法: getMethods()
 
-```
+```Java
 package com.app;
 imort java.lang.reflect.Method;
 
@@ -146,7 +146,7 @@ public class T2 {
 
 运行结果
 
-```
+```Java
 //自定义方法
 public static void com.app.Person.update()
 public java.lang.String com.app.Person.getName()
@@ -198,7 +198,7 @@ interface com.app.InterFace
 
 ### 获取父类: getSuperclass()
 
-```
+```Java
 package com.app;
 public class T4{
     public static void main(String[] args) {
@@ -255,7 +255,7 @@ public com.app.Person()
 
 ### 获取所有属性: getDeclaredFields()
 
- ```
+ ```Java
  package com.app;
  import java.lang.reflect.Constructor;
  import java.lang.reflect.Field;
@@ -289,7 +289,7 @@ public com.app.Person()
 
  ### 创建实例 ： newInstance()
 
- ```
+ ```Java
  package com.app;
 
  publci class T6{
@@ -319,7 +319,7 @@ public com.app.Person()
 
 sample：
 
-```
+```Java
 package com.app;
 
 import java.lang.reflect.Field;
@@ -390,7 +390,7 @@ public class T8 {
 
 # 实战2：通过反射获取对象字段属性，并且赋值
 
-```
+```Java
 package com.app;
 
 import java.lang.reflect.Field;
@@ -437,7 +437,7 @@ java.lang.IllegalAccessException: Class com.app.T1 can not access a member of cl
 
 # 实战3：综合训练，反射操作属性和方法
 
-```
+```Java
 package com.app;
 
 import java.lang.reflect.Field;
@@ -498,7 +498,7 @@ name2: jack
 
 定义Util类
 
-```
+```Java
 package com.app;
 
 public class Util {
@@ -545,7 +545,7 @@ public class Util {
 
 完整小例子：
 
-```
+```Java
 package com.app;
 
 import java.lang.reflect.Field;
@@ -606,389 +606,4 @@ public class T11 {
     }
 }
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

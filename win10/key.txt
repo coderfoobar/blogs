@@ -43,7 +43,7 @@ password(口令)：xs374ca
 
 ----------------------------------------
 
-PL/SQL developer 12.0 注册码（亲测有效）：
+PL/SQL developer 12.0.5 注册码（亲测有效）：
 
 LicenseNumber : 999
 
@@ -53,6 +53,17 @@ SeriesNumber：706090
 
 password：xs374ca
 
+----------------------------------------
+
+PL/SQL developer 12.0.6 注册码（亲测有效）：
+
+LicenseNumber : 999
+
+productCode ： 4vkjwhfeh3ufnqnmpr9brvcuyujrx3n3le
+
+SeriesNumber：226959
+
+password： xs374ca
 
 ========================== winrar 新建文本文件 另存为rarreg.key,粘贴至winrar的安装目录
 RAR registration data

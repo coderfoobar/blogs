@@ -1,7 +1,6 @@
 # blogs
-My blogs and notes ! Devopers !
 
-让优秀成为一种习惯！
+My blogs and notes !
 
 说明 ：
 

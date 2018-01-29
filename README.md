@@ -6,3 +6,11 @@ My blogs and notes !
 
 * Ref :  转载
 * Author ： 原创
+
+
+[readme](./README.md)
+
+[排序](./algorithm/排序.md)
+
+[快排中的Partition算法](./algorithm/快排中的Partition算法.md)
+

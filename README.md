@@ -14,4 +14,4 @@ My blogs and notes !
 
 [快排中的Partition算法](./algorithm/快排中的Partition算法.md)
 
-[快排中的Partition算法](./apache-kafka/Kafka消息组织原理.md)
+[Kafka消息组织原理](./apache-kafka/Kafka消息组织原理.md)

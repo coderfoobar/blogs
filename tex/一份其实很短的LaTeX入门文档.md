@@ -574,14 +574,129 @@ x &= y+z
 
 ## 插入图片和表格
 
-
 ### 图片
 
+关于LaTex插图，首先要说的是：【LaTex只支持`.eps`格式的图片】，**这种说法是错误的**。
+
+在LaTex中插入图片，有很多种方式。最好用的应当属利用`graphicx`宏包提供的`\includegraphics`命令。比如你在你的TeX源文件目录下，有名为`a.jpg`的图片，你可以用这样的方式将它插入到输出文档中：
+
+```tex
+\documentclass{article}
+\usepackage{graphicx}
+\begin{document}
+\includegraphics{a.jpg}
+\end{document}
+```
+
+图片可能很大，超过了输出文件的纸张大小，或者干脆就是你自己觉得输出的效果不爽。这时候你可以用`includegraphics`控制序列的可选参数来控制。比如:
+
+```tex
+\includegraphics[width = .8\textwidth]{a.jpg}
+```
+
+这样图片的宽度会被缩放至页面宽度的百分之八十，图片的总高度会按比例缩放。
+
+> `\includegraphics`控制序列还有若干其他的可选参数可供使用，一般用不到，感兴趣的话，可以去查看[该宏包的文档](http://texdoc.net/texmf-dist/doc/latex/graphics/graphicx.pdf
 
 ### 表格
 
+`tabular`环境提供了最简单的表格功能。它用`\hline`命令表示横线，在列格式中用`|`表示竖线，用`&`表示分列，用`\\`表示换行，每列可以采用居左、居右等横向对齐的方式，分别用`l`,`c`,`r`来表示。
+
+```tex
+\begin{tabular}{l|c|r}
+\hline
+操作系统& 发行版& 编辑器\\
+\hline
+Windows & MikTex & TexMakerX \\
+\hline
+Unix/Linux & teTex & Kile \\
+\hline
+Mac OS & MacTex & TexShop \\
+\hline
+通用&TeX Live & TeXworks \\
+\hline
+\end{tabular}
+```
 
 
+## 浮动体
+
+插图和表格通常需要占据大块空间，所以在文字处理软件中，我们经常需要调整他们的位置。`figure`和`table`环境可以自动完成这样的任务。这种自动调整位置的环境乘坐浮动体(float)。我们以`figure`为例。
+
+```tex
+\begin{figure}[http]
+\centering
+\includegraphics{a.jpg}
+\caption{有图有真相}
+\label{fig:myphoto}
+\end{figure}
+```
+
+"http"选项用来指定插图的理想位置，这几个字幕分别代表here,top,bottom,float  page，也就是就这里，页顶，页尾，浮动页（专门放浮动体的单独页面）。`centering`用来使插图剧中；`\caption`命令用来设置插图标题，LaTeX会自动给浮动体加上编号。注意：`\label`应该放在标题命令之后。
+
+> 图片和表格的各种特殊效果，限于篇幅此处无法详叙。请查看最有一章推荐的文档。
+> 如果你困惑于【为什么图标会乱跑】或者【怎样让图标不乱跑】，请看[我的回答](https://www.zhihu.com/question/25082703/answer/30038248)。
+
+
+## 版面设置
+
+### 页边距
+
+设置页边距，推荐使用`geometry`宏包。可以在这里查看它的说明文档。
+
+比如我希望，将纸张的长度设置为20cm，宽度设置为15cm，左边距1cm，右边距3cm，上边距3cm，下边距4cm，可以在导言区加上这样几行：
+
+```tex
+\usepackage{geometry}
+\geometry{papersize={20cm,15cm}}
+\geometry{left=1cm,right=2cm,top=3cm,bottom=4cm}
+```
+
+### 页眉页脚
+
+设置页眉页脚，推荐使用`fancyhdr`宏包。可以在这里查看它的说明文档。
+
+比如我希望，在也没左边写上我的名字，中间写上今天的日期，右边写上我的电话。页眉的正中写上页码。页眉和正文之间有一道宽为0.4pt的横线分割，可以在导言区加上如下几行：
+
+```tex
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\lhead{\author}
+\chead{\date}
+\rhead{152********}
+\lfoot{}
+\cfoot{\thepage}
+\rfoot{}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\headwidth}{\textwidth}
+\renewcommand{\footrulewidth}{0pt}
+```
+
+###  首行缩进
+
+### 行间距
+
+### 段间距
+
+## TeX家族
+
+### TeX - LaTeX
+
+### pdfTeX - pdfLaTeX
+
+### XeTeX - XeLaTeX 
+
+### LuaTeX
+
+### CTeX - MiKTeX - TeX Live
+
+## 总结
+
+### 出现问题应当如何处理/怎样聪明地提出你的问题--怎样从这里毕业
+
+### 去读文档
+
+### 遇到问题怎么办
 
 
 

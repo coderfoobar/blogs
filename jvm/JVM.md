@@ -353,6 +353,88 @@ class Singleton {
 ```
 
 
+* demo7 -  续demo5
+
+```Java
+/**
+ * 续demo5
+ **/
+public class MyTest7 {
+
+	public static void main (String[] args) {
+
+        /**
+         * 0. 结果
+         * 0
+         */
+        System.out.println(MyParent7_2.a);
+        System.out.println("=============================");
+        /**
+         * 1. 结果
+         * 1
+         */
+        System.out.println(MyChild7_1.b);
+        System.out.println("=============================");
+        /**
+         * 2. 结果
+         * hello class
+         * 2
+         */
+        System.out.println(MyChild7_2.b);
+        System.out.println("=============================");
+        /**
+         * 3. 结果
+         * 3
+         */
+        System.out.println(MyChild7_3.b);
+    }
+
+}
+
+interface MyParent7_1 {
+
+    Thread thread = new Thread (){
+        {
+            System.out.println("hello interface");
+        }
+    };
+}
+
+interface MyParent7_2 extends MyParent7_1 {
+
+    public static final int a = 0;
+}
+
+class MyParent7_3 {
+
+    public static Thread thread = new Thread (){
+        {
+            System.out.println("hello class");
+        }
+    };
+}
+
+class MyChild7_1 implements MyParent7_1 {
+
+    public static int b = 1;
+}
+
+class MyChild7_2 extends MyParent7_3 {
+
+    public static  int b = 2;
+}
+
+class MyChild7_3 extends MyParent7_3 {
+
+    public static final int b = 3;
+}
+
+```
+
+
+
+
+
 ## 类的加载
 
 * 类的加载的最终产品是位于内存中的 Class 对象
@@ -458,6 +540,14 @@ Java 虚拟机自带了以下几种加载器 :
 * 扩展类加载器 (Extention) - 它的父加载器为根类加载器 , 它从 java.ext.dirs 系统属性所指定的目录中加载类库 , 或者从 JDK 的安装目录 jre/lib/ext 子目录(扩展目录) 下加载类库 , 如果把用户创建的 JAR 文件放在这个目录下 , 也会自动由扩展类加载器加载 , 扩展类加载器是纯 Java 类 , 是 java.class.ClassLoader 类的子类
 *  系统 (System) 类加载器 - 也成为应用类加载器 , 它的父加载器为扩展类加载器 . 它从环境变量 CLASSPATH 或者系统属性 java.class.path 所指定的目录中加载类 . 它是用户自定义的类加载器的默认父加载器 , 系统类加载器是纯 Java 类 , 是 java.class.ClassLoader 类的子类 .
 * 除了以上虚拟机自带的类加载器外 , 用户还可以自定义自己的类加载器 , `Java 提供了抽象类 java.class.ClassLoader , 所有用户自定义的类加载器都应该继承该类` .
+
+## 双亲委派机制
+
+> 根类加载器 <---- 扩展类加载器  <----  系统 (应用) 类加载器  <----  用户自定义类加载器
+
+系统类加载器加载某个类时 , 会先委托给扩展类加载器 , 扩展类加载器会再委托给根类加载器 , 根类加载器如果能加载 , 就加载该类 , 如果不能加载 , 就返回给扩展类加载器去加载 , 扩展类加载器如果能加载就加载 , 不能加载就返回给系统类加载器 , 由系统类加载器去加载 . 
+
+
 
 
 

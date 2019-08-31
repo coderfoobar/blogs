@@ -67,6 +67,10 @@ SET PASSWORD FOR 'pig'@'%' = PASSWORD('123456');
 select password('123456');
 ```
 
+```
+ALTER USER "root"@"localhost" IDENTIFIED  BY "你的新密码";
+```
+
 ## 撤销用户权限
 
 ## 删除用户
